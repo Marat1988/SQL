@@ -21,7 +21,7 @@ CREATE TABLE TestTable3(
 GO
 ALTER TABLE TestTable3 ADD SummaDop AS ([Weigth]*[Price]) PERSISTED
 GO
-DROP TABLE TestTabl-e3
+DROP TABLE TestTable3
 GO
 ALTER TABLE TestTable ALTER COLUMN Price Money NOT NULL
 GO
