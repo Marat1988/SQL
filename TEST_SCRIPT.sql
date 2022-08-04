@@ -619,3 +619,166 @@ ALTER TABLE TestTable7 DROP CONSTRAINT CK_TestTable7_C2;
 ALTER TABLE TestTable8 DROP CONSTRAINT DF_C1;
 ALTER TABLE TestTable8 DROP CONSTRAINT DF_C2;
 GO
+DECLARE @TestVar INT
+SET @TestVar = 10
+SELECT @TestVar=10
+SELECT @TestVar*5 AS [Результат]
+GO
+DECLARE @TestTable TABLE (ProductId INT IDENTITY(1,1) NOT NULL,
+					      CategoryId INT NOT NULL,
+						  ProductName VARCHAR(100) NOT NULL,
+						  Price Money NULL);
+INSERT INTO @TestTable
+	SELECT CategoryId, ProductName, Price
+	FROM TestTable
+	WHERE ProductId<=3
+SELECT *
+FROM @TestTable
+GO
+SELECT @@SERVERNAME [Имя локального сервера],
+	   @@VERSION AS [Версия SQL сервера]
+GO
+--Объявление переменных: количество и сумма
+DECLARE @Cnt INT, @Summa MONEY
+SET @Cnt = 10
+SET @Summa = 150
+/*
+	Выполняем операцию умножения.
+	Пример многостраничного комментария
+*/
+SELECT @Cnt*@Summa AS [Результат]
+GO
+DECLARE @TestVar1 INT
+DECLARE @TestVar2 VARCHAR(20)
+SET @TestVar1=5
+IF @TestVar1>0
+	SET @TestVar2='Больше 0'
+ELSE
+	SET @TestVar2='Мешьше 0'
+SELECT @TestVar2 AS [Значение TestVar1]
+GO
+DECLARE @TestVar1 INT
+DECLARE @TestVar2 VARCHAR(20)
+SET @TestVar1 = 0
+IF @TestVar1>0
+	SET @TestVar2='Больше 0'
+SELECT @TestVar2 AS [Значение TestVar1]
+GO
+DECLARE @TestVar1 INT
+DECLARE @TestVar2 VARCHAR(20)
+SET @TestVar1=-5
+IF @TestVar1>0 OR @TestVar1=-5
+	SET @TestVar2='Значение подходит'
+SELECT @TestVar2 AS [Значение TestVar1]
+GO
+DECLARE @TestVar VARCHAR(20)
+IF EXISTS(SELECT * FROM TestTable)
+	SET @TestVar='Записи есть'
+ELSE
+	SET @TestVar='Записей нет'
+SELECT @TestVar AS [Наличие записей]
+GO
+DECLARE @TestVar1 INT
+DECLARE @TestVar2 VARCHAR(20)
+SET @TestVar1=1
+SELECT @TestVar2=CASE @TestVar1 WHEN 1 THEN 'Один'
+							    WHEN 2 THEN 'Два'
+								ELSE 'Неизвестно'
+				 END
+SELECT @TestVar2 AS [Число]
+GO
+DECLARE @TestVar1 INT
+DECLARE @TestVar2 VARCHAR(20), @TestVar3 VARCHAR(20)
+SET @TestVar1=5
+IF @TestVar1 NOT IN (0,1,2)
+BEGIN
+	SET @TestVar2='Первая инструкция'
+	SET @TestVar3='Вторая инструкция'
+END
+SELECT @TestVar2 AS [Значение TestVar2],
+	   @TestVar3 AS [Значение TestVar3]
+GO
+DECLARE @CountAll INT=0
+--Запускаем цикл
+WHILE @CountAll<10
+BEGIN
+	SET @CountAll+=1;
+END
+SELECT @CountAll AS [Результат]
+GO
+DECLARE @CountAll INT=0
+--Запускаем цикл
+WHILE @CountAll<10
+BEGIN
+	SET @CountAll+=1
+	IF @CountAll=5
+		BREAK;
+END
+SELECT @CountAll AS [Результат]
+GO
+DECLARE @Cnt INT=0
+DECLARE @CountAll INT=0
+--Запускаем цикл
+WHILE @CountAll<10
+BEGIN
+	SET @CountAll+=1
+	IF @CountAll=5
+		CONTINUE
+	SET @Cnt+=1
+END
+SELECT @CountAll AS [CountAll],
+	   @Cnt AS [Cnt]
+GO
+DECLARE @TestVar INT = 1
+IF @TestVar > 0
+	PRINT 'Значение переменной больше 0'
+ELSE
+	PRINT 'Значение переменной мешьше или равно 0'
+GO
+DECLARE @TestVar INT=1
+IF @TestVar < 0
+	RETURN
+SELECT @TestVar AS [Результат]
+GO
+DECLARE @TestVar INT=0
+МЕТКА: --Устанавливаем метку
+SET @TestVar+=1 --Увеличиваем значение переменной
+--Проверяем значение переменной
+IF @TestVar<10
+	--Если оно меньше 10, то возвращаемся назад к метке
+	GOTO МЕТКА
+SELECT @TestVar AS [Результат]
+GO
+DECLARE @TestVar INT=2
+DECLARE @Rez INT=0
+IF @TestVar<=0
+	GOTO МЕТКА
+SET @Rez=10/@TestVar
+МЕТКА:
+SELECT @Rez AS [Результат]
+GO
+--Пауза на 5 секунд
+WAITFOR DELAY '00:00:05'
+	SELECT 'Продолжение выполнения инструкции' AS [Test]
+--Паука до 10 часов
+WAITFOR TIME '10:00:00'
+	SELECT 'Продолжение выполнения инструкции' AS [Test]
+GO
+--Начало блока обработки ошибок
+BEGIN TRY
+	--Инструкции, в которых могут возникнуть ошибки
+	DECLARE @TestVar1 INT=10,
+		    @TestVar2 INT=0,
+			@Rez INT
+
+	SET @Rez=@TestVar1/@TestVar2
+END TRY
+--Начало блока CATCH
+BEGIN CATCH
+	--Действия, которые будут выполняться в случае возникновения ошибки
+	SELECT ERROR_NUMBER() AS [Номер ошибки],
+		   ERROR_MESSAGE() AS [Описание ошибки]
+	SET @Rez=0
+END CATCH
+SELECT @Rez AS [Результат]
+GO
