@@ -1,4 +1,4 @@
-CREATE DATABASE TestDB
+п»їCREATE DATABASE TestDB
 GO
 DROP DATABASE TestDB
 GO
@@ -37,13 +37,13 @@ GO
 DROP TABLE #TestTable
 GO
 INSERT INTO TestTable
-	VALUES (1,'Клавиатура',100),
-		   (1,'Мышь',50),
-		   (2,'Телефон',300)
+	VALUES (1,'РљР»Р°РІРёР°С‚СѓСЂР°',100),
+		   (1,'РњС‹С€СЊ',50),
+		   (2,'РўРµР»РµС„РѕРЅ',300)
 GO
 INSERT INTO TestTable2
-	VALUES ('Комплектующие компьютера'),
-		   ('Мобильные устройства')
+	VALUES ('РљРѕРјРїР»РµРєС‚СѓСЋС‰РёРµ РєРѕРјРїСЊСЋС‚РµСЂР°'),
+		   ('РњРѕР±РёР»СЊРЅС‹Рµ СѓСЃС‚СЂРѕР№СЃС‚РІР°')
 GO
 SELECT ProductId, ProductName, Price
 FROM TestTable
@@ -70,7 +70,7 @@ FROM TestDB.dbo.TestTable
 GO
 SELECT T.ProductId AS ID,
 	   T.ProductName AS ProductName,
-	   T.Price AS [Цена]
+	   T.Price AS [Р¦РµРЅР°]
 FROM TestTable AS T
 GO
 SELECT ProductId,
@@ -89,7 +89,7 @@ SELECT ProductId,
 	   ProductName,
 	   Price
 FROM TestTable
-WHERE ProductName LIKE 'Т%'
+WHERE ProductName LIKE 'Рў%'
 GO
 SELECT ProductId,
 	   ProductName,
@@ -109,33 +109,33 @@ SELECT ProductId,
 FROM TestTable
 WHERE Price IS NOT NULL
 GO
-SELECT COUNT(*) AS [Количество строк],
-	   SUM(Price) AS [Сумма по столбцу Price],
-	   MAX(Price) AS [Максимальное значение в столбце Price],
-	   MIN(Price) AS [Минимальное значение в столбце Price],
-	   AVG(Price) AS [Среднее значение в столбце Price]
+SELECT COUNT(*) AS [РљРѕР»РёС‡РµСЃС‚РІРѕ СЃС‚СЂРѕРє],
+	   SUM(Price) AS [РЎСѓРјРјР° РїРѕ СЃС‚РѕР»Р±С†Сѓ Price],
+	   MAX(Price) AS [РњР°РєСЃРёРјР°Р»СЊРЅРѕРµ Р·РЅР°С‡РµРЅРёРµ РІ СЃС‚РѕР»Р±С†Рµ Price],
+	   MIN(Price) AS [РњРёРЅРёРјР°Р»СЊРЅРѕРµ Р·РЅР°С‡РµРЅРёРµ РІ СЃС‚РѕР»Р±С†Рµ Price],
+	   AVG(Price) AS [РЎСЂРµРґРЅРµРµ Р·РЅР°С‡РµРЅРёРµ РІ СЃС‚РѕР»Р±С†Рµ Price]
 FROM TestTable
 GO
-SELECT CategoryId AS [Id категории],
-	   COUNT(*) AS [Количество строк],
-	   SUM(Price) AS [Сумма по столбцу Price],
-	   MAX(Price) AS [Максимальное значение в столбце Price],
-	   MIN(Price) AS [Минимальное значение в столбце Price],
-	   AVG(Price) AS [Среднее значение в столбце Price]
+SELECT CategoryId AS [Id РєР°С‚РµРіРѕСЂРёРё],
+	   COUNT(*) AS [РљРѕР»РёС‡РµСЃС‚РІРѕ СЃС‚СЂРѕРє],
+	   SUM(Price) AS [РЎСѓРјРјР° РїРѕ СЃС‚РѕР»Р±С†Сѓ Price],
+	   MAX(Price) AS [РњР°РєСЃРёРјР°Р»СЊРЅРѕРµ Р·РЅР°С‡РµРЅРёРµ РІ СЃС‚РѕР»Р±С†Рµ Price],
+	   MIN(Price) AS [РњРёРЅРёРјР°Р»СЊРЅРѕРµ Р·РЅР°С‡РµРЅРёРµ РІ СЃС‚РѕР»Р±С†Рµ Price],
+	   AVG(Price) AS [РЎСЂРµРґРЅРµРµ Р·РЅР°С‡РµРЅРёРµ РІ СЃС‚РѕР»Р±С†Рµ Price]
 FROM TestTable
 GROUP BY CategoryId
 GO
-SELECT CategoryId AS [Id категории],
-	   COUNT(*) AS [Количество строк],
-	   MAX(Price) AS [Максимальное значение в столбце Price],
-	   MIN(Price) AS [Минимальное значение в столбце Price],
-	   AVG(Price) AS [Среднее значение в столбце Price]
+SELECT CategoryId AS [Id РєР°С‚РµРіРѕСЂРёРё],
+	   COUNT(*) AS [РљРѕР»РёС‡РµСЃС‚РІРѕ СЃС‚СЂРѕРє],
+	   MAX(Price) AS [РњР°РєСЃРёРјР°Р»СЊРЅРѕРµ Р·РЅР°С‡РµРЅРёРµ РІ СЃС‚РѕР»Р±С†Рµ Price],
+	   MIN(Price) AS [РњРёРЅРёРјР°Р»СЊРЅРѕРµ Р·РЅР°С‡РµРЅРёРµ РІ СЃС‚РѕР»Р±С†Рµ Price],
+	   AVG(Price) AS [РЎСЂРµРґРЅРµРµ Р·РЅР°С‡РµРЅРёРµ РІ СЃС‚РѕР»Р±С†Рµ Price]
 FROM TestTable
 WHERE ProductId<>1
 GROUP BY CategoryId
 GO
-SELECT CategoryId AS [Id категории],
-	   COUNT(*) AS [Количество строк]
+SELECT CategoryId AS [Id РєР°С‚РµРіРѕСЂРёРё],
+	   COUNT(*) AS [РљРѕР»РёС‡РµСЃС‚РІРѕ СЃС‚СЂРѕРє]
 FROM TestTable
 GROUP BY CategoryId
 HAVING COUNT(*)>1
@@ -326,10 +326,10 @@ SELECT T1.ProductId,
 FROM TestTable T1
 WHERE T1.ProductId=2
 GO
-SELECT T2.CategoryName AS [Название категории],
+SELECT T2.CategoryName AS [РќР°Р·РІР°РЅРёРµ РєР°С‚РµРіРѕСЂРёРё],
 	   (SELECT COUNT(*)
 	   FROM TestTable
-	   WHERE CategoryId=T2.CategoryId) AS [Количество товара]
+	   WHERE CategoryId=T2.CategoryId) AS [РљРѕР»РёС‡РµСЃС‚РІРѕ С‚РѕРІР°СЂР°]
 FROM TestTable2 T2
 GO
 SELECT ProductId, Price
@@ -378,13 +378,13 @@ FROM sys.columns
 WHERE object_id=object_id('TestTable')
 GO
 INSERT INTO TestTable
-	VALUES (1,'Клавиатура',100),
-		   (1,'Мышь',50),
-		   (2,'Телефон',300)
+	VALUES (1,'РљР»Р°РІРёР°С‚СѓСЂР°',100),
+		   (1,'РњС‹С€СЊ',50),
+		   (2,'РўРµР»РµС„РѕРЅ',300)
 GO
 INSERT INTO TestTable2
-	VALUES ('Комплектующий компьютера'),
-		   ('Мобильный устройства')
+	VALUES ('РљРѕРјРїР»РµРєС‚СѓСЋС‰РёР№ РєРѕРјРїСЊСЋС‚РµСЂР°'),
+		   ('РњРѕР±РёР»СЊРЅС‹Р№ СѓСЃС‚СЂРѕР№СЃС‚РІР°')
 GO
 SELECT * 
 FROM TestTable
@@ -393,9 +393,9 @@ SELECT *
 FROM TestTable2
 GO
 INSERT INTO TestTable (CategoryId, ProductName, Price)
-	VALUES (1,'Клавиатура',100),
-		   (1,'Мышь',50),
-		   (2,'Телефон',300)
+	VALUES (1,'РљР»Р°РІРёР°С‚СѓСЂР°',100),
+		   (1,'РњС‹С€СЊ',50),
+		   (2,'РўРµР»РµС„РѕРЅ',300)
 GO
 SELECT *
 FROM TestTable
@@ -420,7 +420,7 @@ SELECT *
 FROM TestTable
 WHERE ProductId>3
 GO
-UPDATE TestTable SET ProductName='тестовый товар', Price=150
+UPDATE TestTable SET ProductName='С‚РµСЃС‚РѕРІС‹Р№ С‚РѕРІР°СЂ', Price=150
 WHERE ProductId>3
 GO
 SELECT *
@@ -458,9 +458,9 @@ SELECT *
 FROM TestTable
 GO
 INSERT INTO TestTable
-	VALUES (1,'Клавиатура',100),
-		   (1,'Мышь',50),
-		   (2,'Телефон',300)
+	VALUES (1,'РљР»Р°РІРёР°С‚СѓСЂР°',100),
+		   (1,'РњС‹С€СЊ',50),
+		   (2,'РўРµР»РµС„РѕРЅ',300)
 GO
 SELECT *
 FROM TestTable
@@ -472,9 +472,9 @@ CREATE TABLE TestTable3(
 	Price MONEY NULL)
 GO
 INSERT INTO TestTable3
-	VALUES (1,1,'Клавиатура',0),
-		   (2,1,'Мышь',0),
-		   (4,1,'Тест',0)
+	VALUES (1,1,'РљР»Р°РІРёР°С‚СѓСЂР°',0),
+		   (2,1,'РњС‹С€СЊ',0),
+		   (4,1,'РўРµСЃС‚',0)
 GO
 SELECT *
 FROM TestTable
@@ -492,7 +492,7 @@ Price=T_Source.Price
 		INSERT (ProductId,CategoryId,ProductName,Price)
 		VALUES (T_Source.ProductId,T_Source.CategoryId,T_Source.ProductName,T_Source.Price)
 	WHEN NOT MATCHED BY SOURCE THEN DELETE
-	OUTPUT $action AS [Операция], Inserted.ProductId,
+	OUTPUT $action AS [РћРїРµСЂР°С†РёСЏ], Inserted.ProductId,
 			Inserted.ProductName AS ProductNameNEW,
 			Inserted.Price AS PriceNew,
 			Deleted.ProductName AS ProductNameOLD,
@@ -509,14 +509,14 @@ INSERT INTO TestTable
 		   inserted.CategoryId,
 		   inserted.ProductName,
 		   inserted.Price
-	VALUES (1,'Тестовый товар 1',300),
-		   (1,'Тестовый товар 2',500),
-		   (2,'Тестовый товар 3',400)
+	VALUES (1,'РўРµСЃС‚РѕРІС‹Р№ С‚РѕРІР°СЂ 1',300),
+		   (1,'РўРµСЃС‚РѕРІС‹Р№ С‚РѕРІР°СЂ 2',500),
+		   (2,'РўРµСЃС‚РѕРІС‹Р№ С‚РѕРІР°СЂ 3',400)
 GO
 UPDATE TestTable SET Price=0
 	OUTPUT inserted.ProductId AS [ProductId],
-		   deleted.Price AS [Старое значение Price],
-		   inserted.Price AS [Новое значение Price]
+		   deleted.Price AS [РЎС‚Р°СЂРѕРµ Р·РЅР°С‡РµРЅРёРµ Price],
+		   inserted.Price AS [РќРѕРІРѕРµ Р·РЅР°С‡РµРЅРёРµ Price]
 WHERE ProductId>3
 GO
 DELETE TestTable
@@ -622,7 +622,7 @@ GO
 DECLARE @TestVar INT
 SET @TestVar = 10
 SELECT @TestVar=10
-SELECT @TestVar*5 AS [Результат]
+SELECT @TestVar*5 AS [Р РµР·СѓР»СЊС‚Р°С‚]
 GO
 DECLARE @TestTable TABLE (ProductId INT IDENTITY(1,1) NOT NULL,
 					      CategoryId INT NOT NULL,
@@ -635,90 +635,90 @@ INSERT INTO @TestTable
 SELECT *
 FROM @TestTable
 GO
-SELECT @@SERVERNAME [Имя локального сервера],
-	   @@VERSION AS [Версия SQL сервера]
+SELECT @@SERVERNAME [РРјСЏ Р»РѕРєР°Р»СЊРЅРѕРіРѕ СЃРµСЂРІРµСЂР°],
+	   @@VERSION AS [Р’РµСЂСЃРёСЏ SQL СЃРµСЂРІРµСЂР°]
 GO
---Объявление переменных: количество и сумма
+--РћР±СЉСЏРІР»РµРЅРёРµ РїРµСЂРµРјРµРЅРЅС‹С…: РєРѕР»РёС‡РµСЃС‚РІРѕ Рё СЃСѓРјРјР°
 DECLARE @Cnt INT, @Summa MONEY
 SET @Cnt = 10
 SET @Summa = 150
 /*
-	Выполняем операцию умножения.
-	Пример многостраничного комментария
+	Р’С‹РїРѕР»РЅСЏРµРј РѕРїРµСЂР°С†РёСЋ СѓРјРЅРѕР¶РµРЅРёСЏ.
+	РџСЂРёРјРµСЂ РјРЅРѕРіРѕСЃС‚СЂР°РЅРёС‡РЅРѕРіРѕ РєРѕРјРјРµРЅС‚Р°СЂРёСЏ
 */
-SELECT @Cnt*@Summa AS [Результат]
+SELECT @Cnt*@Summa AS [Р РµР·СѓР»СЊС‚Р°С‚]
 GO
 DECLARE @TestVar1 INT
 DECLARE @TestVar2 VARCHAR(20)
 SET @TestVar1=5
 IF @TestVar1>0
-	SET @TestVar2='Больше 0'
+	SET @TestVar2='Р‘РѕР»СЊС€Рµ 0'
 ELSE
-	SET @TestVar2='Мешьше 0'
-SELECT @TestVar2 AS [Значение TestVar1]
+	SET @TestVar2='РњРµС€СЊС€Рµ 0'
+SELECT @TestVar2 AS [Р—РЅР°С‡РµРЅРёРµ TestVar1]
 GO
 DECLARE @TestVar1 INT
 DECLARE @TestVar2 VARCHAR(20)
 SET @TestVar1 = 0
 IF @TestVar1>0
-	SET @TestVar2='Больше 0'
-SELECT @TestVar2 AS [Значение TestVar1]
+	SET @TestVar2='Р‘РѕР»СЊС€Рµ 0'
+SELECT @TestVar2 AS [Р—РЅР°С‡РµРЅРёРµ TestVar1]
 GO
 DECLARE @TestVar1 INT
 DECLARE @TestVar2 VARCHAR(20)
 SET @TestVar1=-5
 IF @TestVar1>0 OR @TestVar1=-5
-	SET @TestVar2='Значение подходит'
-SELECT @TestVar2 AS [Значение TestVar1]
+	SET @TestVar2='Р—РЅР°С‡РµРЅРёРµ РїРѕРґС…РѕРґРёС‚'
+SELECT @TestVar2 AS [Р—РЅР°С‡РµРЅРёРµ TestVar1]
 GO
 DECLARE @TestVar VARCHAR(20)
 IF EXISTS(SELECT * FROM TestTable)
-	SET @TestVar='Записи есть'
+	SET @TestVar='Р—Р°РїРёСЃРё РµСЃС‚СЊ'
 ELSE
-	SET @TestVar='Записей нет'
-SELECT @TestVar AS [Наличие записей]
+	SET @TestVar='Р—Р°РїРёСЃРµР№ РЅРµС‚'
+SELECT @TestVar AS [РќР°Р»РёС‡РёРµ Р·Р°РїРёСЃРµР№]
 GO
 DECLARE @TestVar1 INT
 DECLARE @TestVar2 VARCHAR(20)
 SET @TestVar1=1
-SELECT @TestVar2=CASE @TestVar1 WHEN 1 THEN 'Один'
-							    WHEN 2 THEN 'Два'
-								ELSE 'Неизвестно'
+SELECT @TestVar2=CASE @TestVar1 WHEN 1 THEN 'РћРґРёРЅ'
+							    WHEN 2 THEN 'Р”РІР°'
+								ELSE 'РќРµРёР·РІРµСЃС‚РЅРѕ'
 				 END
-SELECT @TestVar2 AS [Число]
+SELECT @TestVar2 AS [Р§РёСЃР»Рѕ]
 GO
 DECLARE @TestVar1 INT
 DECLARE @TestVar2 VARCHAR(20), @TestVar3 VARCHAR(20)
 SET @TestVar1=5
 IF @TestVar1 NOT IN (0,1,2)
 BEGIN
-	SET @TestVar2='Первая инструкция'
-	SET @TestVar3='Вторая инструкция'
+	SET @TestVar2='РџРµСЂРІР°СЏ РёРЅСЃС‚СЂСѓРєС†РёСЏ'
+	SET @TestVar3='Р’С‚РѕСЂР°СЏ РёРЅСЃС‚СЂСѓРєС†РёСЏ'
 END
-SELECT @TestVar2 AS [Значение TestVar2],
-	   @TestVar3 AS [Значение TestVar3]
+SELECT @TestVar2 AS [Р—РЅР°С‡РµРЅРёРµ TestVar2],
+	   @TestVar3 AS [Р—РЅР°С‡РµРЅРёРµ TestVar3]
 GO
 DECLARE @CountAll INT=0
---Запускаем цикл
+--Р—Р°РїСѓСЃРєР°РµРј С†РёРєР»
 WHILE @CountAll<10
 BEGIN
 	SET @CountAll+=1;
 END
-SELECT @CountAll AS [Результат]
+SELECT @CountAll AS [Р РµР·СѓР»СЊС‚Р°С‚]
 GO
 DECLARE @CountAll INT=0
---Запускаем цикл
+--Р—Р°РїСѓСЃРєР°РµРј С†РёРєР»
 WHILE @CountAll<10
 BEGIN
 	SET @CountAll+=1
 	IF @CountAll=5
 		BREAK;
 END
-SELECT @CountAll AS [Результат]
+SELECT @CountAll AS [Р РµР·СѓР»СЊС‚Р°С‚]
 GO
 DECLARE @Cnt INT=0
 DECLARE @CountAll INT=0
---Запускаем цикл
+--Р—Р°РїСѓСЃРєР°РµРј С†РёРєР»
 WHILE @CountAll<10
 BEGIN
 	SET @CountAll+=1
@@ -731,54 +731,54 @@ SELECT @CountAll AS [CountAll],
 GO
 DECLARE @TestVar INT = 1
 IF @TestVar > 0
-	PRINT 'Значение переменной больше 0'
+	PRINT 'Р—РЅР°С‡РµРЅРёРµ РїРµСЂРµРјРµРЅРЅРѕР№ Р±РѕР»СЊС€Рµ 0'
 ELSE
-	PRINT 'Значение переменной мешьше или равно 0'
+	PRINT 'Р—РЅР°С‡РµРЅРёРµ РїРµСЂРµРјРµРЅРЅРѕР№ РјРµС€СЊС€Рµ РёР»Рё СЂР°РІРЅРѕ 0'
 GO
 DECLARE @TestVar INT=1
 IF @TestVar < 0
 	RETURN
-SELECT @TestVar AS [Результат]
+SELECT @TestVar AS [Р РµР·СѓР»СЊС‚Р°С‚]
 GO
 DECLARE @TestVar INT=0
-МЕТКА: --Устанавливаем метку
-SET @TestVar+=1 --Увеличиваем значение переменной
---Проверяем значение переменной
+РњР•РўРљРђ: --РЈСЃС‚Р°РЅР°РІР»РёРІР°РµРј РјРµС‚РєСѓ
+SET @TestVar+=1 --РЈРІРµР»РёС‡РёРІР°РµРј Р·РЅР°С‡РµРЅРёРµ РїРµСЂРµРјРµРЅРЅРѕР№
+--РџСЂРѕРІРµСЂСЏРµРј Р·РЅР°С‡РµРЅРёРµ РїРµСЂРµРјРµРЅРЅРѕР№
 IF @TestVar<10
-	--Если оно меньше 10, то возвращаемся назад к метке
-	GOTO МЕТКА
-SELECT @TestVar AS [Результат]
+	--Р•СЃР»Рё РѕРЅРѕ РјРµРЅСЊС€Рµ 10, С‚Рѕ РІРѕР·РІСЂР°С‰Р°РµРјСЃСЏ РЅР°Р·Р°Рґ Рє РјРµС‚РєРµ
+	GOTO РњР•РўРљРђ
+SELECT @TestVar AS [Р РµР·СѓР»СЊС‚Р°С‚]
 GO
 DECLARE @TestVar INT=2
 DECLARE @Rez INT=0
 IF @TestVar<=0
-	GOTO МЕТКА
+	GOTO РњР•РўРљРђ
 SET @Rez=10/@TestVar
-МЕТКА:
-SELECT @Rez AS [Результат]
+РњР•РўРљРђ:
+SELECT @Rez AS [Р РµР·СѓР»СЊС‚Р°С‚]
 GO
---Пауза на 5 секунд
+--РџР°СѓР·Р° РЅР° 5 СЃРµРєСѓРЅРґ
 WAITFOR DELAY '00:00:05'
-	SELECT 'Продолжение выполнения инструкции' AS [Test]
---Паука до 10 часов
+	SELECT 'РџСЂРѕРґРѕР»Р¶РµРЅРёРµ РІС‹РїРѕР»РЅРµРЅРёСЏ РёРЅСЃС‚СЂСѓРєС†РёРё' AS [Test]
+--РџР°СѓРєР° РґРѕ 10 С‡Р°СЃРѕРІ
 WAITFOR TIME '10:00:00'
-	SELECT 'Продолжение выполнения инструкции' AS [Test]
+	SELECT 'РџСЂРѕРґРѕР»Р¶РµРЅРёРµ РІС‹РїРѕР»РЅРµРЅРёСЏ РёРЅСЃС‚СЂСѓРєС†РёРё' AS [Test]
 GO
---Начало блока обработки ошибок
+--РќР°С‡Р°Р»Рѕ Р±Р»РѕРєР° РѕР±СЂР°Р±РѕС‚РєРё РѕС€РёР±РѕРє
 BEGIN TRY
-	--Инструкции, в которых могут возникнуть ошибки
+	--РРЅСЃС‚СЂСѓРєС†РёРё, РІ РєРѕС‚РѕСЂС‹С… РјРѕРіСѓС‚ РІРѕР·РЅРёРєРЅСѓС‚СЊ РѕС€РёР±РєРё
 	DECLARE @TestVar1 INT=10,
 		    @TestVar2 INT=0,
 			@Rez INT
 
 	SET @Rez=@TestVar1/@TestVar2
 END TRY
---Начало блока CATCH
+--РќР°С‡Р°Р»Рѕ Р±Р»РѕРєР° CATCH
 BEGIN CATCH
-	--Действия, которые будут выполняться в случае возникновения ошибки
-	SELECT ERROR_NUMBER() AS [Номер ошибки],
-		   ERROR_MESSAGE() AS [Описание ошибки]
+	--Р”РµР№СЃС‚РІРёСЏ, РєРѕС‚РѕСЂС‹Рµ Р±СѓРґСѓС‚ РІС‹РїРѕР»РЅСЏС‚СЊСЃСЏ РІ СЃР»СѓС‡Р°Рµ РІРѕР·РЅРёРєРЅРѕРІРµРЅРёСЏ РѕС€РёР±РєРё
+	SELECT ERROR_NUMBER() AS [РќРѕРјРµСЂ РѕС€РёР±РєРё],
+		   ERROR_MESSAGE() AS [РћРїРёСЃР°РЅРёРµ РѕС€РёР±РєРё]
 	SET @Rez=0
 END CATCH
-SELECT @Rez AS [Результат]
+SELECT @Rez AS [Р РµР·СѓР»СЊС‚Р°С‚]
 GO
