@@ -782,3 +782,155 @@ BEGIN CATCH
 END CATCH
 SELECT @Rez AS [Результат]
 GO
+CREATE FUNCTION TestFunction
+	(
+		@ProductId INT
+	)
+RETURNS VARCHAR(100)
+AS
+BEGIN
+	DECLARE @ProductName VARCHAR(100);
+
+	SELECT @ProductName=ProductName
+	FROM TestTable
+	WHERE ProductId=@ProductId
+
+	RETURN @ProductName
+END
+GO
+SELECT dbo.TestFunction(1) AS [Наименование товара]
+GO
+SELECT ProductId,
+	   ProductName,
+	   dbo.TestFunction(ProductId) AS [Наименование товара]
+FROM TestTable
+GO
+CREATE FUNCTION FT_TestFunction
+	(
+		@CategoryId INT
+	)
+RETURNS TABLE
+AS
+RETURN(
+	SELECT ProductId,
+		   ProductName,
+		   Price,
+		   CategoryId
+	FROM TestTable
+	WHERE CategoryId=@CategoryId	
+)
+GO
+SELECT * FROM FT_TestFunction(2)
+GO
+CREATE FUNCTION FT_TestFunction2
+	(
+		@CategoryId INT,
+		@Price MONEY
+	)
+RETURNS @TMPTable TABLE (ProductId INT,
+						 ProductName VARCHAR(100),
+						 Price MONEY,
+						 CategoryId INT
+						 )
+AS
+BEGIN
+	IF @Price<0
+		SET @Price=0
+	INSERT INTO @TMPTable
+		SELECT ProductId,
+			   ProductName,
+			   Price,
+			   CategoryId
+		FROM TestTable
+		WHERE CategoryId=@CategoryId
+			AND Price<=@Price
+	RETURN
+END
+GO
+SELECT * FROM FT_TestFunction2(2,200)
+GO
+ALTER FUNCTION TestFunction
+	(
+		@ProductId INT
+	)
+RETURNS VARCHAR(100)
+AS
+BEGIN
+	DECLARE @CategoryName VARCHAR(100)
+	SELECT @CategoryName=T2.CategoryName
+	FROM TestTable T1
+	INNER JOIN TestTable2 T2 ON T1.CategoryId=T2.CategoryId
+	WHERE T1.ProductId=@ProductId
+	RETURN @CategoryName
+END
+GO
+SELECT ProductId,
+	   ProductName,
+	   dbo.TestFunction(ProductId) AS [CategoryName]
+FROM TestTable
+GO
+DROP FUNCTION FT_TestFunction
+GO
+DECLARE @TestVar VARCHAR(100),
+	    @TestVar2 VARCHAR(100)
+SELECT @TestVar='          Текст',
+	   @TestVar2=' Текст          '
+SELECT @TestVar AS TestVar,
+	   @TestVar2 AS TestVar2
+SELECT LTRIM(@TestVar) AS TestVar,
+	   RTRIM(@TestVar2) AS TestVar2
+GO
+DECLARE @TestVar VARCHAR(100),
+	    @TestVar2 VARCHAR(100)
+SELECT @TestVar = 'ТеКст',
+	   @TestVar2='ТЕкст'
+SELECT @TestVar AS TestVar,
+	   @TestVar2 AS TestVar2
+SELECT UPPER(@TestVar) AS TestVar,
+	   LOWER(@TestVar2) AS TestVar2
+GO
+SELECT LEN('123456789') AS [Количество символов]
+GO
+DECLARE @TestVar VARCHAR(100),
+	    @TestVar2 VARCHAR(100)
+SELECT @TestVar='1234567890',
+	   @TestVar2='1234567890'
+SELECT LEFT(@TestVar,5) AS TestVar,
+	   RIGHT(@TestVar2,5) AS TestVar2
+GO
+DECLARE @TestVar VARCHAR(100)
+SELECT @TestVar ='1234567890'
+SELECT SUBSTRING(@TestVar,3,5) AS TestVar
+GO
+DECLARE @TestDate DATETIME
+SET @TestDate=GETDATE()
+SELECT GETDATE() AS [Текущая дата],
+	   DATENAME(M,@TestDate) AS [Название месяца],
+	   DATEPART(M,@TestDate) AS [Номер месяца],
+	   DAY(@TestDate) AS [День],
+	   MONTH(@TestDate) AS [Месяц],
+	   YEAR(@TestDate) AS [Год],
+	   DATEDIFF(D,'01.01.2018',@TestDate) AS [Количество дней],
+	   DATEADD(D,5,GETDATE()) AS [+5 дней]
+GO
+SELECT ABS(-100) AS [ABS],
+	   ROUND(1.567,2) AS [ROUND],
+	   CEILING(1.6) AS [CEILING],
+	   FLOOR(1.6) AS [FLOOR],
+	   SQRT(16) AS [SQRT],
+	   SQUARE(4) AS [SQUARE],
+	   POWER(4,2) AS [POWER],
+	   LOG(10) AS [LOG]
+GO
+SELECT DB_ID() AS [Идекнтификатор текущей БД],
+	   DB_NAME() AS [Имя текущей БД],
+	   OBJECT_ID('TestTable') AS [Идектификатор таблицы TestTable],
+	   OBJECT_NAME(149575571) AS [Имя объекта и ИД 149575571]
+GO
+SELECT ISNULL(NULL,5) AS [ISNULL],
+	   COALESCE(NULL,NULL,5) AS [COALESCE],
+	   CAST(1.5 AS INT) AS [CAST],
+	   HOST_NAME() AS [HOST_NAME],
+	   SUSER_SNAME() AS [SUSER_SNAME],
+	   USER_NAME() AS [USER_NAME]
+GO
