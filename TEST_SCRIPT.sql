@@ -934,3 +934,55 @@ SELECT ISNULL(NULL,5) AS [ISNULL],
 	   SUSER_SNAME() AS [SUSER_SNAME],
 	   USER_NAME() AS [USER_NAME]
 GO
+CREATE PROCEDURE TestProcedure
+(
+	@CategoryId INT,
+	@ProductName VARCHAR(100)
+)
+AS
+BEGIN
+	DECLARE @AVG_Price MONEY
+
+	SELECT @AVG_Price=ROUND(AVG(Price),2)
+	FROM TestTable
+	WHERE CategoryId=@CategoryId
+
+	INSERT INTO TestTable(CategoryId, ProductName, Price)
+		VALUES (@CategoryId, LTRIM(RTRIM(@ProductName)), @AVG_Price)
+
+	SELECT * FROM TestTable
+	WHERE CategoryId=@CategoryId
+END
+GO
+EXEC TestProcedure @CategoryId=1, @ProductName='Тестовый товар'
+GO
+EXEC TestProcedure 1, 'Тестовый товар 2'
+GO
+ALTER PROCEDURE TestProcedure
+(
+	@CategoryId INT,
+	@ProductName VARCHAR(100),
+	@Price MONEY=NULL
+)
+AS
+BEGIN
+	IF @Price IS NULL
+		SELECT @Price=ROUND(AVG(Price),2)
+		FROM TestTable
+		WHERE CategoryId=@CategoryId
+
+		INSERT INTO TestTable (CategoryId, ProductName, Price)
+			VALUES (@CategoryId, LTRIM(RTRIM(@ProductName)),@Price)
+
+		SELECT * FROM TestTable
+		WHERE CategoryId=@CategoryId
+END
+GO
+EXECUTE TestProcedure @CategoryId=1,@ProductName='Тестовый товар 3',@Price=100
+GO
+EXEC sp_helpdb 'TestDB'
+GO
+EXEC sp_tables @table_type = "'TABLE'"
+GO
+EXEC sp_rename TestTable_OldName,TestTable_NewName
+GO
