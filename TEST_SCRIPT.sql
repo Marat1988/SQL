@@ -986,3 +986,97 @@ EXEC sp_tables @table_type = "'TABLE'"
 GO
 EXEC sp_rename TestTable_OldName,TestTable_NewName
 GO
+CREATE TABLE AutitTestTable(
+	Id INT IDENTITY(1,1) NOT NULL,
+	DtChange DATETIME NOT NULL,
+	UserName VARCHAR(100) NOT NULL,
+	SQL_Command VARCHAR(100) NOT NULL,
+	ProductId_Old INT NULL,
+	ProductId_New INT NULL,
+	CategoryId_Old INT NULL,
+	CategoryId_New INT NULL,
+	ProductName_Old VARCHAR(100) NULL,
+	ProductName_New VARCHAR(100) NULL,
+	Price_Old MONEY NULL,
+	Price_New MONEY NULL,
+	CONSTRAINT PK_AutitTestTable PRIMARY KEY (Id)
+)
+GO
+CREATE TRIGGER TRG_Audit_TestTable ON TestTable
+	AFTER INSERT, UPDATE, DELETE
+AS
+BEGIN
+	DECLARE @SQL_Command VARCHAR(100)
+
+	IF EXISTS(SELECT * FROM inserted) AND NOT EXISTS(SELECT * FROM deleted)
+		SET @SQL_Command='INSERT'
+
+	IF EXISTS(SELECT * FROM inserted) AND EXISTS(SELECT * FROM deleted)
+		SET @SQL_Command='UPDATE'
+
+	IF NOT EXISTS(SELECT * FROM inserted) AND EXISTS(SELECT * FROM deleted)
+		SET @SQL_Command='DELETE'
+
+	IF @SQL_Command='UPDATE' OR @SQL_Command='INSERT'
+	BEGIN
+		INSERT INTO AutitTestTable(DtChange, UserName, SQL_Command, ProductId_Old,
+								   ProductId_New, CategoryId_Old, CategoryId_New,
+								   ProductName_Old, ProductName_New, Price_Old, Price_New)
+		SELECT GETDATE(), SUSER_NAME(), @SQL_Command, D.ProductId, I.ProductId,
+				D.CategoryId, I.CategoryId, D.ProductName, I.ProductName, D.Price, I.Price
+		FROM inserted I
+		LEFT JOIN deleted D ON I.ProductId=D.ProductId
+	END
+
+	IF @SQL_Command='DELETE'
+	BEGIN
+		INSERT INTO AutitTestTable(DtChange, UserName, SQL_Command, ProductId_Old,
+								   ProductId_New, CategoryId_Old, CategoryId_New,
+								   ProductName_Old, ProductName_New, Price_Old, Price_New)
+			SELECT GETDATE(), SUSER_NAME(), @SQL_Command,
+					D.ProductId, NULL,
+					D.CategoryId, NULL,
+					D.ProductName, NULL,
+					D.Price, NULL
+			FROM deleted D
+
+	END
+END
+GO
+INSERT INTO TestTable
+	VALUES (1,'Новый товар',0)
+GO
+UPDATE TestTable SET ProductName='Наименование товара',
+					 Price=200
+WHERE ProductName='Новый товар'
+GO
+DELETE TestTable WHERE ProductName='Наименование товара'
+GO
+SELECT * FROM AutitTestTable
+GO
+DISABLE TRIGGER TRG_Audit_TestTable ON TestTable;
+GO
+ENABLE TRIGGER TRG_Audit_TestTable ON TestTable;
+GO
+ALTER TRIGGER TRG_Audit_TestTable ON TestTable
+	AFTER INSERT, UPDATE
+AS
+BEGIN
+	DECLARE @SQL_Command VARCHAR(100)
+
+	IF EXISTS(SELECT * FROM inserted) AND EXISTS(SELECT * FROM deleted)
+		SET @SQL_Command='UPDATE'
+	ELSE
+		SET @SQL_Command='INSERT'
+
+	INSERT INTO AutitTestTable(DtChange, UserName, SQL_Command, ProductId_Old,
+								   ProductId_New, CategoryId_Old, CategoryId_New,
+								   ProductName_Old, ProductName_New, Price_Old, Price_New)
+		SELECT GETDATE(), SUSER_NAME(), @SQL_Command, D.ProductId, I.ProductId,
+				D.CategoryId, I.CategoryId, D.ProductName, I.ProductName, D.Price, I.Price
+		FROM inserted I
+		LEFT JOIN deleted D ON I.ProductId=D.ProductId
+END
+GO
+DROP TRIGGER TRG_Audit_TestTable
+GO
