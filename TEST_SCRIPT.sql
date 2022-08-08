@@ -1080,3 +1080,326 @@ END
 GO
 DROP TRIGGER TRG_Audit_TestTable
 GO
+DECLARE @ProductId INT,
+	    @ProductName VARCHAR(100),
+		@Price MONEY
+DECLARE TestCursor CURSOR FOR
+	SELECT ProductId, ProductName, Price
+	FROM TestTable
+	WHERE CategoryId=1
+OPEN TestCursor
+FETCH NEXT FROM TestCursor INTO @ProductId, @ProductName, @Price
+WHILE @@FETCH_STATUS=0
+BEGIN
+	IF @Price<100
+		UPDATE TestTable SET Price=Price+10
+		WHERE ProductId=@ProductId
+	FETCH NEXT FROM TestCursor INTO @ProductId, @ProductName, @Price
+END
+CLOSE TestCursor
+DEALLOCATE TestCursor
+GO
+BEGIN TRY
+BEGIN TRANSACTION
+	UPDATE TestTable SET CategoryId=2
+	WHERE ProductId=1
+
+	UPDATE TestTable SET CategoryId=NULL
+	WHERE ProductId=2
+END TRY
+	BEGIN CATCH
+		ROLLBACK TRANSACTION
+		SELECT ERROR_NUMBER() AS [Номер ошибки],
+			   ERROR_MESSAGE() AS [Описание ошибки]
+		RETURN;
+	END CATCH
+COMMIT TRANSACTION
+GO
+ALTER DATABASE TestDB SET ALLOW_SNAPSHOT_ISOLATION ON
+GO
+CREATE TABLE TestTableXML(
+	Id INT IDENTITY(1,1) NOT NULL,
+	NameColumn VARCHAR(100) NOT NULL,
+	XMLData XML NULL
+CONSTRAINT PK_TestTableXML PRIMARY KEY (Id)
+)
+GO
+INSERT INTO TestTableXML(NameColumn, XMLData)
+	VALUES ('Текст','<Catalog>
+						<Name>Иван</Name>
+						<LastName>Иванов</LastName>
+					 </Catalog>')
+GO
+SELECT * FROM TestTableXML
+GO
+SELECT XMLData.query('/Catalog/Name') AS [Тег Name]
+FROM TestTableXML
+GO
+SELECT XMLData, XMLData.value('/Catalog[1]/LastName[1]','VARCHAR(100)') AS [LastName]
+FROM TestTableXML
+GO
+SELECT *
+FROM TestTableXML
+WHERE XMLData.exist('/Catalog[1]/LastName')=1
+GO
+UPDATE TestTableXML SET XMLData.modify('delete /Catalog/LastName')
+GO
+SELECT * FROM TestTableXML
+GO
+UPDATE TestTableXML
+SET XMLData.modify('insert <LastName>Иванов</LastName> as last into (/Catalog)[1]')
+GO
+SELECT * FROM TestTableXML
+GO
+UPDATE TestTableXML
+SET XMLData.modify('replace value of(/Catalog/Name[1]/text())[1] with "Сергей"')
+GO
+SELECT * FROM TestTableXML
+GO
+DECLARE @XML_Doc XML;
+SET @XML_Doc='<Root>
+			   <row id="1" Name="Иван"></row>
+			   <row id="2" Name="Сергей"></row>
+			  </Root>';
+SELECT TMP.Col.value('@id','INT') AS Id,
+	   TMP.Col.value('@Name','VARCHAR(10)') AS Name
+FROM @XML_Doc.nodes('/Root/row') TMP(Col);
+GO
+SELECT ProductId, ProductName, Price
+FROM TestTable
+ORDER BY ProductId
+FOR XML RAW, TYPE
+GO
+SELECT ProductId, ProductName, Price
+FROM TestTable
+ORDER BY ProductId
+FOR XML RAW ('Product'), TYPE, ELEMENTS, ROOT ('Products')
+GO
+SELECT TestTable.ProductId, TestTable.ProductName,
+	   TestTable2.CategoryName, TestTable.Price
+FROM TestTable
+LEFT JOIN TestTable2 ON TestTable.CategoryId=TestTable2.CategoryId
+ORDER BY TestTable.ProductId
+FOR XML AUTO, TYPE
+GO
+SELECT TestTable.ProductId, TestTable.ProductName,
+	   TestTable2.CategoryName, TestTable.Price
+FROM TestTable
+LEFT JOIN TestTable2 ON TestTable.CategoryId=TestTable2.CategoryId
+ORDER BY TestTable.ProductId
+FOR XML AUTO, TYPE, ELEMENTS
+GO
+SELECT ProductId AS "@Id", ProductName, Price
+FROM TestTable
+ORDER BY ProductId
+FOR XML PATH ('Product'), TYPE, ROOT('Products')
+GO
+DECLARE @XML_Doc XML;
+DECLARE @XML_Doc_Handle INT;
+SET @XML_Doc=(
+				SELECT ProductId AS "@Id", ProductName, Price
+				FROM TestTable
+				ORDER BY ProductId
+				FOR XML PATH ('Product'), TYPE, ROOT('Products'));
+EXEC sp_xml_preparedocument @XML_Doc_Handle OUTPUT, @XML_Doc;
+SELECT *
+FROM OPENXML (@XML_Doc_Handle,'/Products/Product',2)
+WITH (
+	ProductId INT '@Id',
+	ProductName VARCHAR(100),
+	Price MONEY
+);
+EXEC sp_xml_removedocument @XML_Doc_Handle;
+GO
+WITH TestCTE(ProductId,ProductName,Price) AS
+	(
+		SELECT ProductId, ProductName, Price
+		FROM TestTable
+		WHERE CategoryId=1
+	)
+SELECT * FROM TestCTE
+GO
+WITH TestCTE1 AS
+	(
+		SELECT ProductId, CategoryId, ProductName, Price
+		FROM TestTable
+		WHERE CategoryId=1
+	), TestCTE2 AS
+	(
+		SELECT CategoryId, CategoryName
+		FROM TestTable2
+	)
+SELECT *
+FROM TestCTE1 T1
+LEFT JOIN TestCTE2 T2 ON T1.CategoryId=T2.CategoryId
+WHERE T1.CategoryId=1
+GO
+SELECT T1.ProductName, T2.CategoryName, T1.Price
+FROM (SELECT ProductId, CategoryId, ProductName, Price
+	  FROM TestTable) T1
+LEFT JOIN (SELECT CategoryId, CategoryName
+		  FROM TestTable2) T2 ON T1.CategoryId=T2.CategoryId
+WHERE T1.CategoryId=1
+GO
+SELECT T1.ProductName, T2.CategoryName, T1.Price
+INTO TestTableDop
+FROM TestTable T1
+LEFT JOIN TestTable2 T2 ON T1.CategoryId=T2.CategoryId
+WHERE T1.CategoryId=1
+GO
+SELECT * FROM TestTableDop
+GO
+SELECT ProductId, ProductName, CategoryId, Price,
+	   SUM(Price) OVER (PARTITION BY CategoryId) AS [SUM],
+	   AVG(Price) OVER (PARTITION BY CategoryId) AS [AVG],
+	   COUNT(Price) OVER (PARTITION BY CategoryId) AS [COUNT],
+	   MIN(Price) OVER (PARTITION BY CategoryId) AS [MIN],
+	   MAX(Price) OVER (PARTITION BY CategoryId) AS [MAX]
+FROM TestTable
+GO
+SELECT ROW_NUMBER() OVER (PARTITION BY CategoryId ORDER BY ProductId) AS [ROW_NUMBER],*
+FROM TestTable
+GO
+SELECT RANK() OVER (PARTITION BY CategoryId ORDER BY Price) AS [RANK],*
+FROM TestTable
+GO
+SELECT DENSE_RANK() OVER (PARTITION BY CategoryId ORDER BY Price) AS [DENSE_RANK],*
+FROM TestTable
+GO
+SELECT NTILE(3) OVER (ORDER BY ProductId) AS [NTILE],*
+FROM TestTable
+GO
+SELECT ProductId, ProductName, CategoryId, Price,
+	   LEAD(ProductId) OVER (PARTITION BY CategoryId ORDER BY ProductId) AS [LEAD],
+	   LAG(ProductId) OVER (PARTITION BY CategoryId ORDER BY ProductId) AS [LAG],
+	   FIRST_VALUE(ProductId) OVER (PARTITION BY CategoryId
+									ORDER BY ProductId
+									ROWS BETWEEN UNBOUNDED PRECEDING AND CURRENT ROW) AS [FIRST_VALUE],
+	   LAST_VALUE(ProductId) OVER (PARTITION BY CategoryId
+								   ORDER BY ProductId
+								   ROWS BETWEEN CURRENT ROW AND UNBOUNDED FOLLOWING) AS [LAST_VALUE],
+	   LEAD(ProductId,2) OVER (ORDER BY ProductId) AS [LEAD_2],
+	   LAG(ProductId,2,0) OVER (ORDER BY ProductId) AS [LAG_2]
+FROM TestTable
+ORDER BY ProductId
+GO
+SELECT ProductId, ProductName, CategoryId, Price,
+	   CUME_DIST() OVER (PARTITION BY CategoryId ORDER BY Price) AS [CUME_DIST],
+	   PERCENT_RANK() OVER (PARTITION BY CategoryId ORDER BY Price) AS [PERCENT_RANK],
+	   PERCENTILE_DISC(0.5) WITHIN GROUP(ORDER BY ProductId) OVER(PARTITION BY CategoryId) AS [PERCENTILE_DISC],
+	   PERCENTILE_CONT(0.5) WITHIN GROUP(ORDER BY ProductId) OVER(PARTITION BY CategoryId) AS [PERCENTILE_COUNT]
+FROM TestTable
+GO
+SELECT T2.CategoryName, AVG(T1.Price) AS AvgPrice
+FROM TestTable T1
+LEFT JOIN TestTable2 T2 ON T1.CategoryId=T2.CategoryId
+GROUP BY T2.CategoryName
+GO
+SELECT 'Средняя цена' AS AvgPrice, [Комплектующие компьютера], [Мобильные устройства]
+FROM (SELECT T1.Price, T2.CategoryName
+	  FROM TestTable T1
+	  LEFT JOIN TestTable2 T2 ON T1.CategoryId=T2.CategoryId) AS SourceTable
+PIVOT (AVG(Price) FOR CategoryName IN ([Комплектующие компьютера],[Мобильные устройства])) AS PivotTable;
+GO
+SELECT 'Город' AS NamePar,
+	   'Москва' AS Column1,
+	   'Калуга' AS Column2,
+	   'Тамбов' AS Column3
+INTO #TestUnpivot
+
+SELECT * FROM #TestUnpivot
+
+SELECT NamePar, ColumnName, CityNameValue
+FROM #TestUnpivot
+UNPIVOT(CityNameValue FOR ColumnName IN ([Column1],[Column2],[Column3])) AS UnpivotTable
+GO
+SELECT CategoryId, SUM(Price) AS Summa
+FROM TestTable
+GROUP BY CategoryId
+GO
+SELECT CategoryId, SUM(Price) AS Summa
+FROM TestTable
+GROUP BY
+ROLLUP(CategoryId)
+GO
+SELECT ProductName, CategoryId, SUM(Price) AS Summa
+FROM TestTable
+GROUP BY
+ROLLUP(CategoryId, ProductName)
+GO
+SELECT ProductName, CategoryId, SUM(Price) AS Summa
+FROM TestTable
+GROUP BY
+CUBE(CategoryId,ProductName)
+GO
+SELECT ProductName, CategoryId, SUM(Price) AS Summa
+FROM TestTable
+GROUP BY 
+GROUPING SETS(CategoryId, ProductName)
+GO
+SELECT ProductName, NULL AS CategoryId, SUM(Price) AS Summa
+FROM TestTable
+GROUP BY ProductName
+UNION ALL
+SELECT NULL AS ProductName, CategoryId, SUM(Price) AS Summa
+FROM TestTable
+GROUP BY CategoryId
+GO
+SELECT T2.CategoryName, FT1.*
+FROM TestTable2 T2
+CROSS APPLY FT_TestFunction2(T2.CategoryId,200) AS FT1
+GO
+INSERT INTO TestTable2
+	VALUES ('Новая категория')
+GO
+SELECT T2.CategoryName, FT1.*
+FROM TestTable2 T2
+OUTER APPLY FT_TestFunction2(T2.CategoryId,200) AS FT1
+GO
+sp_configure 'show advanced options',1;
+RECONFIGURE;
+GO
+sp_configure 'Ad Hoc Distributed Queries',1;
+RECONFIGURE;
+GO
+SELECT * FROM OPENDATASOURCE('Microsoft.Jet.OLEDB.4.0',
+							 'Data Source=D:\TestExcel.xls;
+							 Extended Properties=Excel 8.0')..[Лист1$]
+SELECT * FROM OPENROWSET('Microsoft.Jet.OLEDB.4.0',
+						 'Excel 8.0;
+						 Database=D:\TestExcel.xls',
+						 [Лист1$]);
+SELECT * FROM OPENROWSET('Microsoft.Jet.OLEDB.4.0',
+						'Excel 8.0;
+						Database=D:\TestExcel.xls',
+						'SELECT ProductName, Price FROM [Лист1$]');
+EXEC dbo.sp_addlinkedserver @server='TEST_EXCEL',
+							@srvproduct='OLE DB',
+							@provider='Microsoft.Jet.OLEDB.4.0',
+							@datasrc='D:\TestExcel.xls',
+							@provstr='Excel 8.0'
+EXEC dbo.sp_addlinkedsrvlogin @rmtsrvname='TEST_EXCEL',
+							  @useself='False',
+							  @locallogin=NULL,
+							  @rmtuser=NULL,
+							  @rmtpassword=NULL
+SELECT * FROM TEST_EXCEL..[Лист1$]
+GO
+SELECT * FROM OPENQUERY(TEST_EXCEL,'SELECT * FROM [Лист$]')
+GO
+EXEC sp_dropserver 'TEST_EXCEL','droplogins'
+GO
+DECLARE @SQL_QUERY VARCHAR(200),
+		@Var1 INT;
+SET @Var1=1;
+SET @SQL_QUERY='SELECT * FROM TestTable WHERE ProductId= '+CAST(@Var1 AS VARCHAR(10));
+SELECT @SQL_QUERY AS [TEXT QUERY]
+EXEC (@SQL_QUERY)
+GO
+DECLARE @SQL_QUERY NVARCHAR(200);
+SELECT @SQL_QUERY=N'SELECT * FROM TestTable WHERE ProductID=@Var1;'
+SELECT @SQL_QUERY AS [TEXT QUERY]
+EXEC sp_executesql @SQL_QUERY,
+				   N'@Var1 AS INT',
+				   @Var1=1
+GO
