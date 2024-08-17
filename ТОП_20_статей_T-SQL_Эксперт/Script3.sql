@@ -1,4 +1,6 @@
-﻿--Создание таблицы
+﻿/*Статья https://info-comp.ru/obucheniest/652-dynamic-t-sql.html*/
+
+--Создание таблицы
 CREATE TABLE TestTable
 (
 	ProductId INT IDENTITY(1,1) NOT NULL,
