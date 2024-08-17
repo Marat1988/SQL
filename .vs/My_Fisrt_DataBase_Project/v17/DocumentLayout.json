@@ -1,0 +1,48 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\HP\\Documents\\GitHub2\\SQL\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{874E0CE0-95C4-4920-BD6E-9CDBBEF8370A}|My_Fisrt_DataBase_Project.sqlproj|C:\\Users\\HP\\Documents\\GitHub2\\SQL\\Script1.sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}",
+      "RelativeMoniker": "D:0:0:{874E0CE0-95C4-4920-BD6E-9CDBBEF8370A}|My_Fisrt_DataBase_Project.sqlproj|solutionrelative:Script1.sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{874E0CE0-95C4-4920-BD6E-9CDBBEF8370A}|My_Fisrt_DataBase_Project.sqlproj|C:\\Users\\HP\\Documents\\GitHub2\\SQL\\Script1.sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}|CodeFrame",
+      "RelativeMoniker": "D:0:0:{874E0CE0-95C4-4920-BD6E-9CDBBEF8370A}|My_Fisrt_DataBase_Project.sqlproj|solutionrelative:Script1.sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}|CodeFrame"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{874E0CE0-95C4-4920-BD6E-9CDBBEF8370A}|My_Fisrt_DataBase_Project.sqlproj|C:\\Users\\HP\\Documents\\GitHub2\\SQL\\Script1.sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}|ResultFrame",
+      "RelativeMoniker": "D:0:0:{874E0CE0-95C4-4920-BD6E-9CDBBEF8370A}|My_Fisrt_DataBase_Project.sqlproj|solutionrelative:Script1.sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}|ResultFrame"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:1:0:{e8b06f52-6d01-11d2-aa7d-00c04f990343}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Script1.sql ",
+              "DocumentMoniker": "C:\\Users\\HP\\Documents\\GitHub2\\SQL\\Script1.sql",
+              "RelativeDocumentMoniker": "Script1.sql",
+              "ToolTip": "C:\\Users\\HP\\Documents\\GitHub2\\SQL\\Script1.sql",
+              "RelativeToolTip": "Script1.sql",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000826|",
+              "WhenOpened": "2024-08-17T16:19:47.27Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
