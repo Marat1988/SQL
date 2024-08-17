@@ -1,4 +1,6 @@
-﻿--Создание обычной базы данных для тестов
+﻿/*Статья https://info-comp.ru/obucheniest/679-create-table-in-memory-oltp.html*/
+
+--Создание обычной базы данных для тестов
 CREATE DATABASE DBInMemory;
 GO
 --Переходим в контекст новой базы данных
