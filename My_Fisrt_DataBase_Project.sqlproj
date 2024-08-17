@@ -61,5 +61,6 @@
   <ItemGroup>
     <None Include="ТОП_20_статей_T-SQL_Эксперт\Script1.sql" />
     <None Include="ТОП_20_статей_T-SQL_Эксперт\Script2.sql" />
+    <None Include="ТОП_20_статей_T-SQL_Эксперт\Script3.sql" />
   </ItemGroup>
 </Project>
