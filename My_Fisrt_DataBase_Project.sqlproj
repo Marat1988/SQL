@@ -9,8 +9,7 @@
     <ProjectGuid>{874e0ce0-95c4-4920-bd6e-9cdbbef8370a}</ProjectGuid>
     <DSP>Microsoft.Data.Tools.Schema.Sql.Sql160DatabaseSchemaProvider</DSP>
     <OutputType>Database</OutputType>
-    <RootPath>
-    </RootPath>
+    <RootPath />
     <RootNamespace>My_Fisrt_DataBase_Project</RootNamespace>
     <AssemblyName>My_Fisrt_DataBase_Project</AssemblyName>
     <ModelCollation>1033, CI</ModelCollation>
@@ -48,7 +47,6 @@
   </PropertyGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">11.0</VisualStudioVersion>
-    <!-- Default to the v11.0 targets path if the targets file for the current VS version is not found -->
     <SSDTExists Condition="Exists('$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets')">True</SSDTExists>
     <VisualStudioVersion Condition="'$(SSDTExists)' == ''">11.0</VisualStudioVersion>
   </PropertyGroup>
@@ -65,5 +63,6 @@
     <None Include="ТОП_20_статей_T-SQL_Эксперт\Script4.sql" />
     <None Include="ТОП_20_статей_T-SQL_Эксперт\Script5.sql" />
     <None Include="ТОП_20_статей_T-SQL_Эксперт\Script6.sql" />
+    <None Include="ТОП_20_статей_T-SQL_Эксперт\Script7.sql" />
   </ItemGroup>
 </Project>
