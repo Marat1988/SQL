@@ -71,6 +71,7 @@
     <None Include="ТОП_20_статей_T-SQL_Эксперт\Script11.sql" />
     <None Include="ТОП_20_статей_T-SQL_Эксперт\Script12.sql" />
     <None Include="ТОП_20_статей_T-SQL_Эксперт\Script14.sql" />
+    <None Include="ТОП_20_статей_T-SQL_Эксперт\Script15.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="ТОП_20_статей_T-SQL_Эксперт\Script13.sql" />
