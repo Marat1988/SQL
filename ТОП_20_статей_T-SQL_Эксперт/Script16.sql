@@ -1,4 +1,6 @@
-﻿DROP TABLE IF EXISTS TestTable
+﻿/*Статья https://info-comp.ru/obucheniest/614-rowcount-function-in-t-sql.html*/
+
+DROP TABLE IF EXISTS TestTable
 GO
 
 CREATE TABLE dbo.TestTable

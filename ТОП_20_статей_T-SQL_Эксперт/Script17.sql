@@ -1,4 +1,6 @@
-﻿CREATE PROCEDURE sp_Test
+﻿/*https://info-comp.ru/obucheniest/596-save-result-stored-procedure-in-table.html*/
+
+CREATE PROCEDURE sp_Test
 AS
 SELECT *
 FROM (VALUES (1, 'Компьютер', 500),
