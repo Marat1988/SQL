@@ -55,6 +55,7 @@
   <ItemGroup>
     <Folder Include="Properties" />
     <Folder Include="ТОП_20_статей_T-SQL_Эксперт" />
+    <Folder Include="ТОП_20_статей_T_SQL_Продвинутый" />
   </ItemGroup>
   <ItemGroup>
     <None Include="ТОП_20_статей_T-SQL_Эксперт\Script1.sql" />
@@ -77,6 +78,8 @@
     <None Include="ТОП_20_статей_T-SQL_Эксперт\Script19.sql" />
     <None Include="ТОП_20_статей_T-SQL_Эксперт\Script18.sql" />
     <None Include="ТОП_20_статей_T-SQL_Эксперт\Script20.sql" />
+    <None Include="ТОП_20_статей_T_SQL_Продвинутый\Script1.sql" />
+    <None Include="ТОП_20_статей_T_SQL_Продвинутый\Script2.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="ТОП_20_статей_T-SQL_Эксперт\Script13.sql" />
