@@ -1,4 +1,6 @@
-﻿DROP TABLE IF EXISTS TestTable;
+﻿/*Статья https://info-comp.ru/obucheniest/495-the-with-in-t-sql-or-common-table-expression.html*/
+
+DROP TABLE IF EXISTS TestTable;
 GO
 
 CREATE TABLE TestTable
@@ -31,7 +33,6 @@ AS
 )
 SELECT *
 FROM TestCTE;
-/*Статья https://info-comp.ru/obucheniest/495-the-with-in-t-sql-or-common-table-expression.html*/
 
 --Пример рекурсивного запроса
 WITH TestCTE (UserId, Post, ManagerId, LevelUser)
