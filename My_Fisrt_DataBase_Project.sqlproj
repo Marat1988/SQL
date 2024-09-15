@@ -87,6 +87,7 @@
     <None Include="ТОП_20_статей_T_SQL_Продвинутый\Script7.sql" />
     <None Include="ТОП_20_статей_T_SQL_Продвинутый\Script8.sql" />
     <None Include="ТОП_20_статей_T_SQL_Продвинутый\Script9.sql" />
+    <None Include="ТОП_20_статей_T_SQL_Продвинутый\Script10.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="ТОП_20_статей_T-SQL_Эксперт\Script13.sql" />
