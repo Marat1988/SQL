@@ -1,16 +1,7 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "C:\\Users\\HP\\Documents\\GitHub2\\SQL\\",
-  "Documents": [
-    {
-      "AbsoluteMoniker": "D:0:0:{874E0CE0-95C4-4920-BD6E-9CDBBEF8370A}|My_Fisrt_DataBase_Project.sqlproj|C:\\Users\\HP\\Documents\\GitHub2\\SQL\\\u0422\u041E\u041F_20_\u0441\u0442\u0430\u0442\u0435\u0439_T_SQL_\u041F\u0440\u043E\u0434\u0432\u0438\u043D\u0443\u0442\u044B\u0439\\Script21.sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}",
-      "RelativeMoniker": "D:0:0:{874E0CE0-95C4-4920-BD6E-9CDBBEF8370A}|My_Fisrt_DataBase_Project.sqlproj|solutionrelative:\u0422\u041E\u041F_20_\u0441\u0442\u0430\u0442\u0435\u0439_T_SQL_\u041F\u0440\u043E\u0434\u0432\u0438\u043D\u0443\u0442\u044B\u0439\\Script21.sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{874E0CE0-95C4-4920-BD6E-9CDBBEF8370A}|My_Fisrt_DataBase_Project.sqlproj|C:\\Users\\HP\\Documents\\GitHub2\\SQL\\\u0422\u041E\u041F_20_\u0441\u0442\u0430\u0442\u0435\u0439_T_SQL_\u041F\u0440\u043E\u0434\u0432\u0438\u043D\u0443\u0442\u044B\u0439\\Script21.sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}|CodeFrame",
-      "RelativeMoniker": "D:0:0:{874E0CE0-95C4-4920-BD6E-9CDBBEF8370A}|My_Fisrt_DataBase_Project.sqlproj|solutionrelative:\u0422\u041E\u041F_20_\u0441\u0442\u0430\u0442\u0435\u0439_T_SQL_\u041F\u0440\u043E\u0434\u0432\u0438\u043D\u0443\u0442\u044B\u0439\\Script21.sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}|CodeFrame"
-    }
-  ],
+  "Documents": [],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
@@ -18,7 +9,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": -1,
           "Children": [
             {
               "$type": "Bookmark",
@@ -27,18 +18,6 @@
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{0174dea2-fdbe-4ef1-8f99-c0beae78880f}"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Script21.sql ",
-              "DocumentMoniker": "C:\\Users\\HP\\Documents\\GitHub2\\SQL\\\u0422\u041E\u041F_20_\u0441\u0442\u0430\u0442\u0435\u0439_T_SQL_\u041F\u0440\u043E\u0434\u0432\u0438\u043D\u0443\u0442\u044B\u0439\\Script21.sql",
-              "RelativeDocumentMoniker": "\u0422\u041E\u041F_20_\u0441\u0442\u0430\u0442\u0435\u0439_T_SQL_\u041F\u0440\u043E\u0434\u0432\u0438\u043D\u0443\u0442\u044B\u0439\\Script21.sql",
-              "ToolTip": "C:\\Users\\HP\\Documents\\GitHub2\\SQL\\\u0422\u041E\u041F_20_\u0441\u0442\u0430\u0442\u0435\u0439_T_SQL_\u041F\u0440\u043E\u0434\u0432\u0438\u043D\u0443\u0442\u044B\u0439\\Script21.sql",
-              "RelativeToolTip": "\u0422\u041E\u041F_20_\u0441\u0442\u0430\u0442\u0435\u0439_T_SQL_\u041F\u0440\u043E\u0434\u0432\u0438\u043D\u0443\u0442\u044B\u0439\\Script21.sql",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000826|",
-              "WhenOpened": "2024-09-28T19:20:30.751Z",
-              "EditorCaption": ""
             }
           ]
         }

@@ -1,0 +1,1 @@
+﻿/*Статья https://info-comp.ru/programmirovanie/749-what-is-sql.html*/
