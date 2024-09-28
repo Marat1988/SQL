@@ -1,7 +1,20 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "C:\\Users\\HP\\Documents\\GitHub2\\SQL\\",
-  "Documents": [],
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{874E0CE0-95C4-4920-BD6E-9CDBBEF8370A}|My_Fisrt_DataBase_Project.sqlproj|C:\\Users\\HP\\Documents\\GitHub2\\SQL\\\u0422\u041E\u041F_30_\u0441\u0442\u0430\u0442\u0435\u0439_T_SQL_\u041D\u0430\u0447\u0438\u043D\u0430\u044E\u0449\u0438\u0439\\Script3.sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}",
+      "RelativeMoniker": "D:0:0:{874E0CE0-95C4-4920-BD6E-9CDBBEF8370A}|My_Fisrt_DataBase_Project.sqlproj|solutionrelative:\u0422\u041E\u041F_30_\u0441\u0442\u0430\u0442\u0435\u0439_T_SQL_\u041D\u0430\u0447\u0438\u043D\u0430\u044E\u0449\u0438\u0439\\Script3.sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{874E0CE0-95C4-4920-BD6E-9CDBBEF8370A}|My_Fisrt_DataBase_Project.sqlproj|C:\\Users\\HP\\Documents\\GitHub2\\SQL\\\u0422\u041E\u041F_30_\u0441\u0442\u0430\u0442\u0435\u0439_T_SQL_\u041D\u0430\u0447\u0438\u043D\u0430\u044E\u0449\u0438\u0439\\Script3.sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}|CodeFrame",
+      "RelativeMoniker": "D:0:0:{874E0CE0-95C4-4920-BD6E-9CDBBEF8370A}|My_Fisrt_DataBase_Project.sqlproj|solutionrelative:\u0422\u041E\u041F_30_\u0441\u0442\u0430\u0442\u0435\u0439_T_SQL_\u041D\u0430\u0447\u0438\u043D\u0430\u044E\u0449\u0438\u0439\\Script3.sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}|CodeFrame"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{874E0CE0-95C4-4920-BD6E-9CDBBEF8370A}|My_Fisrt_DataBase_Project.sqlproj|C:\\Users\\HP\\Documents\\GitHub2\\SQL\\\u0422\u041E\u041F_30_\u0441\u0442\u0430\u0442\u0435\u0439_T_SQL_\u041D\u0430\u0447\u0438\u043D\u0430\u044E\u0449\u0438\u0439\\Script3.sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}|ResultFrame",
+      "RelativeMoniker": "D:0:0:{874E0CE0-95C4-4920-BD6E-9CDBBEF8370A}|My_Fisrt_DataBase_Project.sqlproj|solutionrelative:\u0422\u041E\u041F_30_\u0441\u0442\u0430\u0442\u0435\u0439_T_SQL_\u041D\u0430\u0447\u0438\u043D\u0430\u044E\u0449\u0438\u0439\\Script3.sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}|ResultFrame"
+    }
+  ],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
@@ -9,7 +22,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": -1,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Bookmark",
@@ -18,6 +31,18 @@
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{0174dea2-fdbe-4ef1-8f99-c0beae78880f}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Script3.sql ",
+              "DocumentMoniker": "C:\\Users\\HP\\Documents\\GitHub2\\SQL\\\u0422\u041E\u041F_30_\u0441\u0442\u0430\u0442\u0435\u0439_T_SQL_\u041D\u0430\u0447\u0438\u043D\u0430\u044E\u0449\u0438\u0439\\Script3.sql",
+              "RelativeDocumentMoniker": "\u0422\u041E\u041F_30_\u0441\u0442\u0430\u0442\u0435\u0439_T_SQL_\u041D\u0430\u0447\u0438\u043D\u0430\u044E\u0449\u0438\u0439\\Script3.sql",
+              "ToolTip": "C:\\Users\\HP\\Documents\\GitHub2\\SQL\\\u0422\u041E\u041F_30_\u0441\u0442\u0430\u0442\u0435\u0439_T_SQL_\u041D\u0430\u0447\u0438\u043D\u0430\u044E\u0449\u0438\u0439\\Script3.sql",
+              "RelativeToolTip": "\u0422\u041E\u041F_30_\u0441\u0442\u0430\u0442\u0435\u0439_T_SQL_\u041D\u0430\u0447\u0438\u043D\u0430\u044E\u0449\u0438\u0439\\Script3.sql",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000826|",
+              "WhenOpened": "2024-09-28T20:08:26.425Z",
+              "EditorCaption": ""
             }
           ]
         }
