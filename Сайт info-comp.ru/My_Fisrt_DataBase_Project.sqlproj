@@ -1,0 +1,113 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <Name>My_Fisrt_DataBase_Project</Name>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectVersion>4.1</ProjectVersion>
+    <ProjectGuid>{874e0ce0-95c4-4920-bd6e-9cdbbef8370a}</ProjectGuid>
+    <DSP>Microsoft.Data.Tools.Schema.Sql.Sql160DatabaseSchemaProvider</DSP>
+    <OutputType>Database</OutputType>
+    <RootPath />
+    <RootNamespace>My_Fisrt_DataBase_Project</RootNamespace>
+    <AssemblyName>My_Fisrt_DataBase_Project</AssemblyName>
+    <ModelCollation>1033, CI</ModelCollation>
+    <DefaultFileStructure>BySchemaAndSchemaType</DefaultFileStructure>
+    <DeployToDatabase>True</DeployToDatabase>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <TargetLanguage>CS</TargetLanguage>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <SqlServerVerification>False</SqlServerVerification>
+    <IncludeCompositeObjects>True</IncludeCompositeObjects>
+    <TargetDatabaseSet>True</TargetDatabaseSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release\</OutputPath>
+    <BuildScriptName>$(MSBuildProjectName).sql</BuildScriptName>
+    <TreatWarningsAsErrors>False</TreatWarningsAsErrors>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <OutputPath>bin\Debug\</OutputPath>
+    <BuildScriptName>$(MSBuildProjectName).sql</BuildScriptName>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">11.0</VisualStudioVersion>
+    <SSDTExists Condition="Exists('$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets')">True</SSDTExists>
+    <VisualStudioVersion Condition="'$(SSDTExists)' == ''">11.0</VisualStudioVersion>
+  </PropertyGroup>
+  <Import Condition="'$(SQLDBExtensionsRefPath)' != ''" Project="$(SQLDBExtensionsRefPath)\Microsoft.Data.Tools.Schema.SqlTasks.targets" />
+  <Import Condition="'$(SQLDBExtensionsRefPath)' == ''" Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets" />
+  <ItemGroup>
+    <Folder Include="Properties" />
+    <Folder Include="ТОП_20_статей_T-SQL_Эксперт" />
+    <Folder Include="ТОП_20_статей_T_SQL_Продвинутый" />
+    <Folder Include="ТОП_30_статей_T_SQL_Начинающий" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ТОП_20_статей_T-SQL_Эксперт\Script1.sql" />
+    <None Include="ТОП_20_статей_T-SQL_Эксперт\Script2.sql" />
+    <None Include="ТОП_20_статей_T-SQL_Эксперт\Script3.sql" />
+    <None Include="ТОП_20_статей_T-SQL_Эксперт\Script4.sql" />
+    <None Include="ТОП_20_статей_T-SQL_Эксперт\Script5.sql" />
+    <None Include="ТОП_20_статей_T-SQL_Эксперт\Script6.sql" />
+    <None Include="ТОП_20_статей_T-SQL_Эксперт\Script7.sql" />
+    <None Include="ТОП_20_статей_T-SQL_Эксперт\Script8.sql" />
+    <None Include="ТОП_20_статей_T-SQL_Эксперт\Script9.sql" />
+    <None Include="ТОП_20_статей_T-SQL_Эксперт\Script10_1.sql" />
+    <None Include="ТОП_20_статей_T-SQL_Эксперт\Script10_2.sql" />
+    <None Include="ТОП_20_статей_T-SQL_Эксперт\Script11.sql" />
+    <None Include="ТОП_20_статей_T-SQL_Эксперт\Script12.sql" />
+    <None Include="ТОП_20_статей_T-SQL_Эксперт\Script14.sql" />
+    <None Include="ТОП_20_статей_T-SQL_Эксперт\Script15.sql" />
+    <None Include="ТОП_20_статей_T-SQL_Эксперт\Script16.sql" />
+    <None Include="ТОП_20_статей_T-SQL_Эксперт\Script17.sql" />
+    <None Include="ТОП_20_статей_T-SQL_Эксперт\Script19.sql" />
+    <None Include="ТОП_20_статей_T-SQL_Эксперт\Script18.sql" />
+    <None Include="ТОП_20_статей_T-SQL_Эксперт\Script20.sql" />
+    <None Include="ТОП_20_статей_T_SQL_Продвинутый\Script1.sql" />
+    <None Include="ТОП_20_статей_T_SQL_Продвинутый\Script2.sql" />
+    <None Include="ТОП_20_статей_T_SQL_Продвинутый\Script3.sql" />
+    <None Include="ТОП_20_статей_T_SQL_Продвинутый\Script4.sql" />
+    <None Include="ТОП_20_статей_T_SQL_Продвинутый\Script5.sql" />
+    <None Include="ТОП_20_статей_T_SQL_Продвинутый\Script6.sql" />
+    <None Include="ТОП_20_статей_T_SQL_Продвинутый\Script7.sql" />
+    <None Include="ТОП_20_статей_T_SQL_Продвинутый\Script8.sql" />
+    <None Include="ТОП_20_статей_T_SQL_Продвинутый\Script9.sql" />
+    <None Include="ТОП_20_статей_T_SQL_Продвинутый\Script10.sql" />
+    <None Include="ТОП_20_статей_T_SQL_Продвинутый\Script11.sql" />
+    <None Include="ТОП_20_статей_T_SQL_Продвинутый\Script12.sql" />
+    <None Include="ТОП_20_статей_T_SQL_Продвинутый\Script13.sql" />
+    <None Include="ТОП_20_статей_T_SQL_Продвинутый\Script14.sql" />
+    <None Include="ТОП_20_статей_T_SQL_Продвинутый\Script15.sql" />
+    <None Include="ТОП_20_статей_T_SQL_Продвинутый\Script16.sql" />
+    <None Include="ТОП_20_статей_T_SQL_Продвинутый\Script17.sql" />
+    <None Include="ТОП_20_статей_T_SQL_Продвинутый\Script18.sql" />
+    <None Include="ТОП_20_статей_T_SQL_Продвинутый\Script19.sql" />
+    <None Include="ТОП_20_статей_T_SQL_Продвинутый\Script20.sql" />
+    <None Include="ТОП_20_статей_T_SQL_Продвинутый\Script21.sql" />
+    <None Include="ТОП_30_статей_T_SQL_Начинающий\Script1.sql" />
+    <None Include="ТОП_30_статей_T_SQL_Начинающий\Script2.sql" />
+    <None Include="ТОП_30_статей_T_SQL_Начинающий\Script3.sql" />
+    <None Include="ТОП_30_статей_T_SQL_Начинающий\Script4.sql" />
+    <None Include="ТОП_30_статей_T_SQL_Начинающий\Script5.sql" />
+    <None Include="ТОП_30_статей_T_SQL_Начинающий\Script6.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ТОП_20_статей_T-SQL_Эксперт\Script13.sql" />
+  </ItemGroup>
+</Project>

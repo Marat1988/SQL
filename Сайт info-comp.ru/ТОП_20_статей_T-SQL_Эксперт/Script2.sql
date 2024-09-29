@@ -1,0 +1,1 @@
+﻿/*Статья https://info-comp.ru/obucheniest/530-creating-an-alias-data-type-in-microsoft-sql-server.html*/

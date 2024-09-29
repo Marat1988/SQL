@@ -1,1 +1,0 @@
-﻿/*Статья https://info-comp.ru/how-to-create-sql-query*/

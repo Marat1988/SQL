@@ -1,1 +1,0 @@
-﻿/*Статья https://info-comp.ru/list-english-sites-for-sql-server*/
