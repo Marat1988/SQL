@@ -114,6 +114,7 @@
     <None Include="ТОП_30_статей_T_SQL_Начинающий\Script12.sql" />
     <None Include="ТОП_30_статей_T_SQL_Начинающий\Script13.sql" />
     <None Include="ТОП_30_статей_T_SQL_Начинающий\Script14.sql" />
+    <None Include="ТОП_30_статей_T_SQL_Начинающий\Script15.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="ТОП_20_статей_T-SQL_Эксперт\Script13.sql" />
