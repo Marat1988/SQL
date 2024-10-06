@@ -58,9 +58,8 @@
     <Folder Include="Properties" />
     <Folder Include="Оконные функции" />
     <Folder Include="Оконные функции\Окна в SQL Server" />
-    <Folder Include="Оконные функции\Окна в SQL Server\Основы оконных функций" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Оконные функции\Окна в SQL Server\Основы оконных функций\Script1.sql" />
+    <None Include="Оконные функции\Окна в SQL Server\Script1.sql" />
   </ItemGroup>
 </Project>
