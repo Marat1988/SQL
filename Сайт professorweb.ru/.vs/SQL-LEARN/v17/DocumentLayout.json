@@ -3,8 +3,20 @@
   "WorkspaceRootPath": "C:\\Users\\HP\\Documents\\GitHub2\\SQL\\\u0421\u0430\u0439\u0442 professorweb.ru\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{398E9CC4-CB0A-4E0D-99F0-29077D3B6596}|SQL-LEARN.sqlproj|C:\\Users\\HP\\Documents\\GitHub2\\SQL\\\u0421\u0430\u0439\u0442 professorweb.ru\\\u041E\u043A\u043E\u043D\u043D\u044B\u0435 \u0444\u0443\u043D\u043A\u0446\u0438\u0438\\\u041E\u043A\u043D\u0430 \u0432 SQL Server\\Script2.sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}",
+      "RelativeMoniker": "D:0:0:{398E9CC4-CB0A-4E0D-99F0-29077D3B6596}|SQL-LEARN.sqlproj|solutionrelative:\u041E\u043A\u043E\u043D\u043D\u044B\u0435 \u0444\u0443\u043D\u043A\u0446\u0438\u0438\\\u041E\u043A\u043D\u0430 \u0432 SQL Server\\Script2.sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{398E9CC4-CB0A-4E0D-99F0-29077D3B6596}|SQL-LEARN.sqlproj|C:\\Users\\HP\\Documents\\GitHub2\\SQL\\\u0421\u0430\u0439\u0442 professorweb.ru\\\u041E\u043A\u043E\u043D\u043D\u044B\u0435 \u0444\u0443\u043D\u043A\u0446\u0438\u0438\\\u041E\u043A\u043D\u0430 \u0432 SQL Server\\Script1.sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}",
       "RelativeMoniker": "D:0:0:{398E9CC4-CB0A-4E0D-99F0-29077D3B6596}|SQL-LEARN.sqlproj|solutionrelative:\u041E\u043A\u043E\u043D\u043D\u044B\u0435 \u0444\u0443\u043D\u043A\u0446\u0438\u0438\\\u041E\u043A\u043D\u0430 \u0432 SQL Server\\Script1.sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{398E9CC4-CB0A-4E0D-99F0-29077D3B6596}|SQL-LEARN.sqlproj|C:\\Users\\HP\\Documents\\GitHub2\\SQL\\\u0421\u0430\u0439\u0442 professorweb.ru\\\u041E\u043A\u043E\u043D\u043D\u044B\u0435 \u0444\u0443\u043D\u043A\u0446\u0438\u0438\\\u041E\u043A\u043D\u0430 \u0432 SQL Server\\Script2.sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}|CodeFrame",
+      "RelativeMoniker": "D:0:0:{398E9CC4-CB0A-4E0D-99F0-29077D3B6596}|SQL-LEARN.sqlproj|solutionrelative:\u041E\u043A\u043E\u043D\u043D\u044B\u0435 \u0444\u0443\u043D\u043A\u0446\u0438\u0438\\\u041E\u043A\u043D\u0430 \u0432 SQL Server\\Script2.sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}|CodeFrame"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{398E9CC4-CB0A-4E0D-99F0-29077D3B6596}|SQL-LEARN.sqlproj|C:\\Users\\HP\\Documents\\GitHub2\\SQL\\\u0421\u0430\u0439\u0442 professorweb.ru\\\u041E\u043A\u043E\u043D\u043D\u044B\u0435 \u0444\u0443\u043D\u043A\u0446\u0438\u0438\\\u041E\u043A\u043D\u0430 \u0432 SQL Server\\Script2.sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}|ResultFrame",
+      "RelativeMoniker": "D:0:0:{398E9CC4-CB0A-4E0D-99F0-29077D3B6596}|SQL-LEARN.sqlproj|solutionrelative:\u041E\u043A\u043E\u043D\u043D\u044B\u0435 \u0444\u0443\u043D\u043A\u0446\u0438\u0438\\\u041E\u043A\u043D\u0430 \u0432 SQL Server\\Script2.sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}|ResultFrame"
     },
     {
       "AbsoluteMoniker": "D:0:0:{398E9CC4-CB0A-4E0D-99F0-29077D3B6596}|SQL-LEARN.sqlproj|C:\\Users\\HP\\Documents\\GitHub2\\SQL\\\u0421\u0430\u0439\u0442 professorweb.ru\\\u041E\u043A\u043E\u043D\u043D\u044B\u0435 \u0444\u0443\u043D\u043A\u0446\u0438\u0438\\\u041E\u043A\u043D\u0430 \u0432 SQL Server\\Script1.sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}|CodeFrame",
@@ -18,7 +30,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Bookmark",
@@ -30,14 +42,26 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "Script1.sql ",
               "DocumentMoniker": "C:\\Users\\HP\\Documents\\GitHub2\\SQL\\\u0421\u0430\u0439\u0442 professorweb.ru\\\u041E\u043A\u043E\u043D\u043D\u044B\u0435 \u0444\u0443\u043D\u043A\u0446\u0438\u0438\\\u041E\u043A\u043D\u0430 \u0432 SQL Server\\Script1.sql",
               "RelativeDocumentMoniker": "\u041E\u043A\u043E\u043D\u043D\u044B\u0435 \u0444\u0443\u043D\u043A\u0446\u0438\u0438\\\u041E\u043A\u043D\u0430 \u0432 SQL Server\\Script1.sql",
               "ToolTip": "C:\\Users\\HP\\Documents\\GitHub2\\SQL\\\u0421\u0430\u0439\u0442 professorweb.ru\\\u041E\u043A\u043E\u043D\u043D\u044B\u0435 \u0444\u0443\u043D\u043A\u0446\u0438\u0438\\\u041E\u043A\u043D\u0430 \u0432 SQL Server\\Script1.sql",
               "RelativeToolTip": "\u041E\u043A\u043E\u043D\u043D\u044B\u0435 \u0444\u0443\u043D\u043A\u0446\u0438\u0438\\\u041E\u043A\u043D\u0430 \u0432 SQL Server\\Script1.sql",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000826|",
-              "WhenOpened": "2024-10-05T18:16:13.306Z",
+              "WhenOpened": "2024-10-06T13:36:38.461Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Script2.sql ",
+              "DocumentMoniker": "C:\\Users\\HP\\Documents\\GitHub2\\SQL\\\u0421\u0430\u0439\u0442 professorweb.ru\\\u041E\u043A\u043E\u043D\u043D\u044B\u0435 \u0444\u0443\u043D\u043A\u0446\u0438\u0438\\\u041E\u043A\u043D\u0430 \u0432 SQL Server\\Script2.sql",
+              "RelativeDocumentMoniker": "\u041E\u043A\u043E\u043D\u043D\u044B\u0435 \u0444\u0443\u043D\u043A\u0446\u0438\u0438\\\u041E\u043A\u043D\u0430 \u0432 SQL Server\\Script2.sql",
+              "ToolTip": "C:\\Users\\HP\\Documents\\GitHub2\\SQL\\\u0421\u0430\u0439\u0442 professorweb.ru\\\u041E\u043A\u043E\u043D\u043D\u044B\u0435 \u0444\u0443\u043D\u043A\u0446\u0438\u0438\\\u041E\u043A\u043D\u0430 \u0432 SQL Server\\Script2.sql",
+              "RelativeToolTip": "\u041E\u043A\u043E\u043D\u043D\u044B\u0435 \u0444\u0443\u043D\u043A\u0446\u0438\u0438\\\u041E\u043A\u043D\u0430 \u0432 SQL Server\\Script2.sql",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000826|",
+              "WhenOpened": "2024-10-06T13:01:31.657Z",
               "EditorCaption": ""
             }
           ]
