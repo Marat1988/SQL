@@ -67,5 +67,6 @@
     <None Include="Оконные функции\Окна в SQL Server\Script5.sql" />
     <None Include="Оконные функции\Окна в SQL Server\Script6.sql" />
     <None Include="Оконные функции\Окна в SQL Server\Script7.sql" />
+    <None Include="Оконные функции\Окна в SQL Server\Script8.sql" />
   </ItemGroup>
 </Project>
