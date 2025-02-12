@@ -57,6 +57,11 @@
   <ItemGroup>
     <Folder Include="Properties" />
     <Folder Include="Unit1" />
+    <Folder Include="Unit2" />
+    <Folder Include="Unit2\Функции агрегирования" />
+    <Folder Include="Unit2\Функции ранжирования" />
+    <Folder Include="Unit2\Аналитические функции" />
+    <Folder Include="Unit2\Функции смещения" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Unit1\Script1.sql" />
@@ -67,5 +72,18 @@
     <None Include="Unit1\Script6.sql" />
     <None Include="Unit1\Script7.sql" />
     <None Include="Unit1\README.md" />
+    <None Include="Unit2\Функции агрегирования\Script2.sql" />
+    <None Include="Unit2\Функции агрегирования\Script3.sql" />
+    <None Include="Unit2\Функции ранжирования\Script1.sql" />
+    <None Include="Unit2\Аналитические функции\Script1.sql" />
+    <None Include="Unit2\Аналитические функции\Script2.sql" />
+    <None Include="Unit2\Функции смещения\Script1.sql" />
+    <None Include="Unit2\Функции смещения\Script2.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Unit2\Функции агрегирования\Script1.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Unit2\Функции ранжирования\Script4.sql" />
   </ItemGroup>
 </Project>
