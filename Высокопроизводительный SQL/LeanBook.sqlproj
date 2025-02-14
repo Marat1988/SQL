@@ -63,6 +63,7 @@
     <Folder Include="Unit2\Аналитические функции" />
     <Folder Include="Unit2\Функции смещения" />
     <Folder Include="Unit3" />
+    <Folder Include="Unit4" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Unit1\Script1.sql" />
@@ -86,6 +87,15 @@
     <None Include="Unit3\Script4.sql" />
     <None Include="Unit3\Script5.sql" />
     <None Include="Unit3\Script6.sql" />
+    <None Include="Unit4\Script1.sql" />
+    <None Include="Unit4\Script2.sql" />
+    <None Include="Unit4\Script3.sql" />
+    <None Include="Unit4\Script4.sql" />
+    <None Include="Unit4\Script5.sql" />
+    <None Include="Unit4\Script6.sql" />
+    <None Include="Unit4\Script7.sql" />
+    <None Include="Unit4\Script8.sql" />
+    <None Include="Unit4\Script9.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Unit2\Функции агрегирования\Script1.sql" />

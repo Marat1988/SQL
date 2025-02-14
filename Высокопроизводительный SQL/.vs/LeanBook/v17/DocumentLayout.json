@@ -3,16 +3,16 @@
   "WorkspaceRootPath": "C:\\Users\\HP\\Documents\\GitHub2\\SQL\\\u0412\u044B\u0441\u043E\u043A\u043E\u043F\u0440\u043E\u0438\u0437\u0432\u043E\u0434\u0438\u0442\u0435\u043B\u044C\u043D\u044B\u0439 SQL\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{71047562-72A2-4731-AD21-CCE7C81C6F6E}|LeanBook.sqlproj|C:\\Users\\HP\\Documents\\GitHub2\\SQL\\\u0412\u044B\u0441\u043E\u043A\u043E\u043F\u0440\u043E\u0438\u0437\u0432\u043E\u0434\u0438\u0442\u0435\u043B\u044C\u043D\u044B\u0439 SQL\\Unit3\\Script6.sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}",
-      "RelativeMoniker": "D:0:0:{71047562-72A2-4731-AD21-CCE7C81C6F6E}|LeanBook.sqlproj|solutionrelative:Unit3\\Script6.sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}"
+      "AbsoluteMoniker": "D:0:0:{71047562-72A2-4731-AD21-CCE7C81C6F6E}|LeanBook.sqlproj|C:\\Users\\HP\\Documents\\GitHub2\\SQL\\\u0412\u044B\u0441\u043E\u043A\u043E\u043F\u0440\u043E\u0438\u0437\u0432\u043E\u0434\u0438\u0442\u0435\u043B\u044C\u043D\u044B\u0439 SQL\\Unit4\\Script9.sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}",
+      "RelativeMoniker": "D:0:0:{71047562-72A2-4731-AD21-CCE7C81C6F6E}|LeanBook.sqlproj|solutionrelative:Unit4\\Script9.sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{71047562-72A2-4731-AD21-CCE7C81C6F6E}|LeanBook.sqlproj|C:\\Users\\HP\\Documents\\GitHub2\\SQL\\\u0412\u044B\u0441\u043E\u043A\u043E\u043F\u0440\u043E\u0438\u0437\u0432\u043E\u0434\u0438\u0442\u0435\u043B\u044C\u043D\u044B\u0439 SQL\\Unit3\\Script6.sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}|CodeFrame",
-      "RelativeMoniker": "D:0:0:{71047562-72A2-4731-AD21-CCE7C81C6F6E}|LeanBook.sqlproj|solutionrelative:Unit3\\Script6.sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}|CodeFrame"
+      "AbsoluteMoniker": "D:0:0:{71047562-72A2-4731-AD21-CCE7C81C6F6E}|LeanBook.sqlproj|C:\\Users\\HP\\Documents\\GitHub2\\SQL\\\u0412\u044B\u0441\u043E\u043A\u043E\u043F\u0440\u043E\u0438\u0437\u0432\u043E\u0434\u0438\u0442\u0435\u043B\u044C\u043D\u044B\u0439 SQL\\Unit4\\Script9.sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}|CodeFrame",
+      "RelativeMoniker": "D:0:0:{71047562-72A2-4731-AD21-CCE7C81C6F6E}|LeanBook.sqlproj|solutionrelative:Unit4\\Script9.sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}|CodeFrame"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{71047562-72A2-4731-AD21-CCE7C81C6F6E}|LeanBook.sqlproj|C:\\Users\\HP\\Documents\\GitHub2\\SQL\\\u0412\u044B\u0441\u043E\u043A\u043E\u043F\u0440\u043E\u0438\u0437\u0432\u043E\u0434\u0438\u0442\u0435\u043B\u044C\u043D\u044B\u0439 SQL\\Unit3\\Script6.sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}|ResultFrame",
-      "RelativeMoniker": "D:0:0:{71047562-72A2-4731-AD21-CCE7C81C6F6E}|LeanBook.sqlproj|solutionrelative:Unit3\\Script6.sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}|ResultFrame"
+      "AbsoluteMoniker": "D:0:0:{71047562-72A2-4731-AD21-CCE7C81C6F6E}|LeanBook.sqlproj|C:\\Users\\HP\\Documents\\GitHub2\\SQL\\\u0412\u044B\u0441\u043E\u043A\u043E\u043F\u0440\u043E\u0438\u0437\u0432\u043E\u0434\u0438\u0442\u0435\u043B\u044C\u043D\u044B\u0439 SQL\\Unit4\\Script9.sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}|ResultFrame",
+      "RelativeMoniker": "D:0:0:{71047562-72A2-4731-AD21-CCE7C81C6F6E}|LeanBook.sqlproj|solutionrelative:Unit4\\Script9.sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}|ResultFrame"
     }
   ],
   "DocumentGroupContainers": [
@@ -35,13 +35,13 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "Script6.sql ",
-              "DocumentMoniker": "C:\\Users\\HP\\Documents\\GitHub2\\SQL\\\u0412\u044B\u0441\u043E\u043A\u043E\u043F\u0440\u043E\u0438\u0437\u0432\u043E\u0434\u0438\u0442\u0435\u043B\u044C\u043D\u044B\u0439 SQL\\Unit3\\Script6.sql",
-              "RelativeDocumentMoniker": "Unit3\\Script6.sql",
-              "ToolTip": "C:\\Users\\HP\\Documents\\GitHub2\\SQL\\\u0412\u044B\u0441\u043E\u043A\u043E\u043F\u0440\u043E\u0438\u0437\u0432\u043E\u0434\u0438\u0442\u0435\u043B\u044C\u043D\u044B\u0439 SQL\\Unit3\\Script6.sql",
-              "RelativeToolTip": "Unit3\\Script6.sql",
+              "Title": "Script9.sql ",
+              "DocumentMoniker": "C:\\Users\\HP\\Documents\\GitHub2\\SQL\\\u0412\u044B\u0441\u043E\u043A\u043E\u043F\u0440\u043E\u0438\u0437\u0432\u043E\u0434\u0438\u0442\u0435\u043B\u044C\u043D\u044B\u0439 SQL\\Unit4\\Script9.sql",
+              "RelativeDocumentMoniker": "Unit4\\Script9.sql",
+              "ToolTip": "C:\\Users\\HP\\Documents\\GitHub2\\SQL\\\u0412\u044B\u0441\u043E\u043A\u043E\u043F\u0440\u043E\u0438\u0437\u0432\u043E\u0434\u0438\u0442\u0435\u043B\u044C\u043D\u044B\u0439 SQL\\Unit4\\Script9.sql",
+              "RelativeToolTip": "Unit4\\Script9.sql",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000826|",
-              "WhenOpened": "2025-02-13T10:32:07.877Z",
+              "WhenOpened": "2025-02-14T20:45:30.517Z",
               "EditorCaption": ""
             }
           ]
