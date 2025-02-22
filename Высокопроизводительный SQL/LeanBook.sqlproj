@@ -64,6 +64,7 @@
     <Folder Include="Unit2\Функции смещения" />
     <Folder Include="Unit3" />
     <Folder Include="Unit4" />
+    <Folder Include="Unit5" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Unit1\Script1.sql" />
@@ -96,6 +97,24 @@
     <None Include="Unit4\Script7.sql" />
     <None Include="Unit4\Script8.sql" />
     <None Include="Unit4\Script9.sql" />
+    <None Include="Unit5\Script1.sql" />
+    <None Include="Unit5\Script2.sql" />
+    <None Include="Unit5\Script3.sql" />
+    <None Include="Unit5\Script4.sql" />
+    <None Include="Unit5\Script5.sql" />
+    <None Include="Unit5\Script6.sql" />
+    <None Include="Unit5\Script7.sql" />
+    <None Include="Unit5\Script8.sql" />
+    <None Include="Unit5\Script9.sql" />
+    <None Include="Unit5\Script10.sql" />
+    <None Include="Unit5\Script11.sql" />
+    <None Include="Unit5\Script12.sql" />
+    <None Include="Unit5\Script13.sql" />
+    <None Include="Unit5\Script14.sql" />
+    <None Include="Unit5\Script15.sql" />
+    <None Include="Unit5\Script16.sql" />
+    <None Include="Unit5\Script17.sql" />
+    <None Include="Unit5\Script18.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Unit2\Функции агрегирования\Script1.sql" />

@@ -1,0 +1,6 @@
+C:\Users\HP\Documents\GitHub2\SandBox_CSharp\AccountBalances\bin\Debug\AccountBalances.dll
+C:\Users\HP\Documents\GitHub2\SandBox_CSharp\AccountBalances\bin\Debug\AccountBalances.pdb
+C:\Users\HP\Documents\GitHub2\SandBox_CSharp\AccountBalances\obj\Debug\AccountBalances.csproj.AssemblyReference.cache
+C:\Users\HP\Documents\GitHub2\SandBox_CSharp\AccountBalances\obj\Debug\AccountBalances.csproj.CoreCompileInputs.cache
+C:\Users\HP\Documents\GitHub2\SandBox_CSharp\AccountBalances\obj\Debug\AccountBalances.dll
+C:\Users\HP\Documents\GitHub2\SandBox_CSharp\AccountBalances\obj\Debug\AccountBalances.pdb
