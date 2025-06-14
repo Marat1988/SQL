@@ -259,3 +259,132 @@ SELECT orderid, val,
 	ROW_NUMBER() OVER(ORDER BY val, orderid) AS rownum,
 	NTILE(10) OVER(ORDER BY val, orderid) AS tile
   FROM Sales.OrderValues
+
+
+SELECT orderid, val,
+	ROW_NUMBER() OVER(ORDER BY val, orderid) AS rownum,
+	NTILE(100) OVER(ORDER BY val, orderid) AS tile
+  FROM Sales.OrderValues
+
+SELECT orderid, orderdate, val,
+	ROW_NUMBER() OVER(ORDER BY orderdate DESC) AS rownum,
+	RANK()		 OVER(ORDER BY orderdate DESC) AS rnk,
+	DENSE_RANK() OVER(ORDER BY orderdate DESC) AS drnk
+  FROM Sales.OrderValues
+
+
+/*****************************************************************************/
+
+/*
+testid	    studentid	score
+Test ABC	Student E	50
+Test ABC	Student C	55
+Test ABC	Student D	55
+Test ABC	Student H	65
+Test ABC	Student I	75
+Test ABC	Student B	80
+Test ABC	Student F	80
+Test ABC	Student A	95
+Test ABC	Student G	95
+Test XYZ	Student E	50
+Test XYZ	Student C	55
+Test XYZ	Student D	55
+Test XYZ	Student H	65
+Test XYZ	Student I	75
+Test XYZ	Student B	80
+Test XYZ	Student F	80
+Test XYZ	Student A	95
+Test XYZ	Student G	95
+Test XYZ	Student J	95
+
+
+1) Пусть rk - это ранг строки, вычисленные при помощи функции RANK с использованием той же спецификации,
+     окна, которая применяется при выполнении функции распределения;
+2) Пусть nr - это количество строк в секции;
+3) Пусть np - это количество строк с меньшим или таким же значением упорядочивания, как в текущей строке (также может быть вычислено как минимальное
+	 значение rk больше текущего, уменьшенного на единицу, а в случае достижения rk максимума - как nr)
+
+С учетом введенныъ выше переменных можно прописать формулы для вычисления. 
+Функция PERCENT_RANK вычисляется как (rk-1)/(nr-1)
+Функция CUME_DIST как np/nr
+
+*/
+
+SELECT testid, studentid, score,
+    RANK() OVER(PARTITION BY testid ORDER BY score) AS rank,
+	PERCENT_RANK() OVER(PARTITION BY testid ORDER BY score) AS percentrank,
+	CUME_DIST() OVER(PARTITION BY testid ORDER BY score) AS cumedist
+  FROM Stats.Scores;
+
+/*
+testid	studentid	score	rank	percentrank	cumedist
+Test ABC	Student E	50	1	0	0,111111111111111
+Test ABC	Student C	55	2	0,125	0,333333333333333
+Test ABC	Student D	55	2	0,125	0,333333333333333
+Test ABC	Student H	65	4	0,375	0,444444444444444
+Test ABC	Student I	75	5	0,5	0,555555555555556
+Test ABC	Student B	80	6	0,625	0,777777777777778
+Test ABC	Student F	80	6	0,625	0,777777777777778
+Test ABC	Student A	95	8	0,875	1
+Test ABC	Student G	95	8	0,875	1
+Test XYZ	Student E	50	1	0	0,1
+Test XYZ	Student C	55	2	0,111111111111111	0,3
+Test XYZ	Student D	55	2	0,111111111111111	0,3
+Test XYZ	Student H	65	4	0,333333333333333	0,4
+Test XYZ	Student I	75	5	0,444444444444444	0,5
+Test XYZ	Student B	80	6	0,555555555555556	0,7
+Test XYZ	Student F	80	6	0,555555555555556	0,7
+Test XYZ	Student A	95	8	0,777777777777778	1
+Test XYZ	Student G	95	8	0,777777777777778	1
+Test XYZ	Student J	95	8	0,777777777777778	1
+
+*/
+
+/*Вычисялется процентильный ранг и накопительное распределение по количеству заказов по сотрудникам*/
+
+
+/*
+empid	numorders
+1	123
+2	96
+3	127
+4	156
+5	42
+6	67
+7	72
+8	104
+9	43
+*/
+
+
+SELECT empid, COUNT(*) AS numorders,
+	RANK() OVER(ORDER BY COUNT(*)) AS rnk,
+	PERCENT_RANK() OVER(ORDER BY COUNT(*)) AS percentrank,
+	CUME_DIST() OVER(ORDER BY COUNT(*)) AS cumedist
+  FROM Sales.Orders
+ GROUP BY empid
+
+/*******************************************************************/
+
+
+SELECT testid, studentid, score,
+  RANK() OVER(PARTITION BY testid ORDER BY score) AS rnk,
+  PERCENT_RANK() OVER(PARTITION BY testid ORDER BY score) AS percentrank,
+  CUME_DIST()    OVER(PARTITION BY testid ORDER BY score) AS cumedist
+  FROM Stats.Scores;
+
+
+SELECT testid, studentid, score,
+  PERCENTILE_DISC(0.3) WITHIN GROUP(ORDER BY score) OVER(PARTITION BY testid) AS percentile
+FROM Stats.Scores
+
+DECLARE @pct AS FLOAT=0.7 --0.5
+
+SELECT testid, studentid, score,
+  CUME_DIST()    OVER(PARTITION BY testid ORDER BY score) AS cumedist,
+  PERCENTILE_DISC(@pct) WITHIN GROUP(ORDER BY score) OVER(PARTITION BY testid) AS percentiledisc,
+  PERCENTILE_CONT(@pct)  WITHIN GROUP(ORDER BY score) OVER(PARTITION BY testid) AS percentilecont
+FROM Stats.Scores
+
+
+
