@@ -378,7 +378,7 @@ SELECT testid, studentid, score,
   PERCENTILE_DISC(0.3) WITHIN GROUP(ORDER BY score) OVER(PARTITION BY testid) AS percentile
 FROM Stats.Scores
 
-DECLARE @pct AS FLOAT=0.7 --0.5
+DECLARE @pct AS FLOAT=0.1 --0.5
 
 SELECT testid, studentid, score,
   CUME_DIST()    OVER(PARTITION BY testid ORDER BY score) AS cumedist,
@@ -387,4 +387,36 @@ SELECT testid, studentid, score,
 FROM Stats.Scores
 
 
+SELECT custid, orderdate, orderid, val,
+	LAG(val) OVER(PARTITION BY custid
+				ORDER BY orderdate, orderid) AS prevval,
+	LEAD(val) OVER(PARTITION BY custid
+				ORDER BY orderdate, orderid) AS nextval
+  FROM Sales.OrderValues
 
+SELECT custid, orderdate,orderid,
+	LAG(val,3) OVER(PARTITION BY custid
+				ORDER BY orderdate, orderid) AS prev3val
+  FROM Sales.OrderValues
+
+SELECT custid, orderdate, orderid, val,
+	FIRST_VALUE(val) OVER(PARTITION BY custid
+		ORDER BY orderdate,orderid
+		ROWS BETWEEN UNBOUNDED PRECEDING
+			AND CURRENT ROW) AS val_firstorder,
+	LAST_VALUE(val) OVER(PARTITION BY custid
+		ORDER BY orderdate, orderid
+		ROWS BETWEEN CURRENT ROW
+			AND UNBOUNDED FOLLOWING) AS val_lastorder
+  FROM Sales.OrderValues
+
+SELECT custid, orderdate, orderid, val,
+	val - FIRST_VALUE(val) OVER(PARTITION BY custid
+			ORDER BY orderdate, orderid
+			ROWS BETWEEN UNBOUNDED PRECEDING
+				AND CURRENT ROW) AS difffirst,
+	val - LAST_VALUE(val) OVER(PARTITION BY custid
+			ORDER BY orderdate, orderid
+			ROWS BETWEEN CURRENT ROW
+				AND UNBOUNDED FOLLOWING) AS difflast
+  FROM Sales.OrderValues

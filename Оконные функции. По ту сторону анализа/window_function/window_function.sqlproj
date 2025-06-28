@@ -58,9 +58,11 @@
     <Folder Include="Properties" />
     <Folder Include="Chapter1" />
     <Folder Include="Chapter2" />
+    <Folder Include="Chapter3" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Chapter1\Script1.sql" />
     <None Include="Chapter2\Script1.sql" />
+    <None Include="Chapter3\Script1.sql" />
   </ItemGroup>
 </Project>
